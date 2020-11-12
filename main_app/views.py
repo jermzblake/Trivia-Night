@@ -43,16 +43,16 @@ def question(request):
   question = state.question.question
   
   print(question)
-  return render(request, 'question.html', {'time_left': time_left})
+  return render(request, 'game/question.html', {'time_left': time_left})
 
 def intermission(request):
   state = State.objects.first()
   time_left = ((state.time_stamp + timedelta(microseconds=(intermission_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
-  return render(request, 'intermission.html', {'time_left': time_left})
+  return render(request, 'game/intermission.html', {'time_left': time_left})
 
 def waiting(request):
   get_question()
-  return render(request, 'waiting.html')
+  return render(request, 'game/waiting.html')
 
 def get_question():
   
