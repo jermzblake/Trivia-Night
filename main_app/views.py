@@ -7,7 +7,7 @@ question_time = 20000
 intermission_time = 10000
 
 # imports for the api
-import requests
+# import requests
 import json
 from html.parser import HTMLParser
 from html import unescape
