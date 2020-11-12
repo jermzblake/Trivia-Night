@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import State
+from .models import State, Question, Result
 
 def switchboard(request):
   state = State.objects.all().first()
@@ -18,5 +18,3 @@ def intermission(request):
 
 def waiting(request):
   return render(request, 'waiting.html')
-
-
