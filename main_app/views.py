@@ -40,15 +40,15 @@ def switchboard(request):
 def question(request):
   state = State.objects.first()
   time_left = ((state.time_stamp + timedelta(microseconds=(question_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
-  return render(request, 'question.html', {'time_left': time_left})
+  return render(request, 'game/question.html', {'time_left': time_left})
 
 def intermission(request):
   state = State.objects.first()
   time_left = ((state.time_stamp + timedelta(microseconds=(intermission_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
-  return render(request, 'intermission.html', {'time_left': time_left})
+  return render(request, 'game/intermission.html', {'time_left': time_left})
 
 def waiting(request):
-  return render(request, 'waiting.html')
+  return render(request, 'game/waiting.html')
 
 def get_question(request):
   
