@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
   path('switchboard', views.switchboard, name='switchboard' ),
-  path('question', views.question, name='question'),
-  path('intermission', views.intermission, name='intermission'),
-  path('waiting', views.waiting, name='waiting'),
+  path('game/question', views.question, name='question'),
+  path('game/intermission', views.intermission, name='intermission'),
+  path('game/waiting', views.waiting, name='waiting'),
 ]
