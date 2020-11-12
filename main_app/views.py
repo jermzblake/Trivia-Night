@@ -1,6 +1,14 @@
 from django.shortcuts import render, redirect
 from .models import State, Question, Result
 
+# imports for the api
+import requests
+import json
+from html.parser import HTMLParser
+from html import unescape
+import html
+import random
+
 def switchboard(request):
   state = State.objects.all().first()
   if state.current_state == 'question':
