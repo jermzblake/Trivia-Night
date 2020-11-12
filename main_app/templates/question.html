@@ -1,16 +1,7 @@
-{% load static %}
+{% extends 'base.html' %}
+{% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script>var time_left = {{ time_left }}</script>
-  <script defer src="{% static 'js/question.js' %}"></script>
-</head>
-<body>
-  Question
-  {{ time_left }}
-</body>
-</html>
+
+
+{% endblock %}
+
