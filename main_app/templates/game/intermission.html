@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
 <script>let time_left = {{ time_left }}</script>
 <script src="{% static 'js/intermission.js' %}"></script>
 
@@ -15,7 +16,7 @@
       </g>
     </svg>
     <span id="base-timer-label" class="base-timer__label">
-        {{ time_left }}>  <!-- tutorial used this ${formatTime(timeLeft)}-->
+        {{ time_left }}>  <!-- tutorial used this     ${formatTime(timeLeft)}-->
       <!-- Remaining time label -->
     </span>
 </div>
