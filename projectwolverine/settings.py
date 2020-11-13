@@ -134,3 +134,7 @@ STATIC_URL = '/static/'
 # This variable is to specify where successful 
 # logins should redirect to from "registration/login.html"
 LOGIN_REDIRECT_URL = 'switchboard'
+
+
+# This variable is for when the user logs out
+LOGOUT_REDIRECT_URL = 'login'
