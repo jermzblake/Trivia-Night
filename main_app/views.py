@@ -18,28 +18,47 @@ from html import unescape
 import html
 import random
 
+# When we trigger a refresh for a user, they are sent to this view. This view redirects them based on current game state.
 def switchboard(request):
+
+  # Set state variable representing current state of game
   state = State.objects.first()
+  # Set time_elapsed variable representing time elapsed since last change of state
   time_elapsed = (datetime.now(timezone.utc) - state.time_stamp) / timedelta(microseconds=1) / 1000
+
+  # If the current State is question
   if state.current_state == 'question':
+    # If time_elapsed exceeds question_time, it's time to switch to intermission state
     if time_elapsed > question_time:
+      # Change state to intermission
       state.current_state = 'intermission'
+      # Set new time_stamp
       state.time_stamp = datetime.now(timezone.utc)
       state.save()
+      # Call get_question function to populate State with new question
       get_question()
+      # Redirect user to intermission flow
       return redirect('intermission')
+    # If time_elapsed is less than question_time, we're in the question state
     if time_elapsed < question_time:
+      # Redirect user to question flow
       return redirect('question')
+
+  # If the current State is intermission
   if state.current_state == 'intermission':
+    # If time_elapsed exceeds intermission_time, it's time to switch to question state
     if time_elapsed > intermission_time:
+      # Change state to question
       state.current_state = 'question'
+      # Set new time_stamp
       state.time_stamp = datetime.now(timezone.utc)
       state.save()
+      # Redirect user to question flow
       return redirect('question')
+    # If time_elapsed is less than question_time, we're in the intermission state
     if time_elapsed < intermission_time:
+      # Redirect user to intermission flow
       return redirect('intermission')
-  if state.current_state == 'waiting':
-    return redirect('waiting')
 
 def question(request):
   state = State.objects.first()
