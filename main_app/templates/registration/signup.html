@@ -1,14 +1,23 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %}{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}" />
+<div class="sign-up-wrapper">
+  <div class="sign-up-box">
+    <div class="top-bar-container">
+      <div class="sign-up-title">Sign Up</div>
 
-<h1>Sign Up</h1>
+      <div class="ham-btn">
+        <img width="32px" src="" alt="" />
+      </div>
+    </div>
 
-{% if error_message %}
-<p class="red-text">{{ error_message }}</p>
-{% endif %}
+    {% if error_message %}
+    <p class="red-text">{{ error_message }}</p>
+    {% endif %}
 
-<form method="post" action="{% url 'signup' %}">
-  {% csrf_token %} {{ form.as_p }}
-  <input type="submit" class="btn" value="signup" />
-</form>
-
+    <form method="post" action="{% url 'signup' %}">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="submit" class="btn" value="signup" />
+    </form>
+  </div>
+</div>
 {% endblock %}
