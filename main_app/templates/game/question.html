@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/question.css' %}" />
-<script>
+<!-- <script>
   let time_left = {{ time_left }}
 </script>
-<script src="{% static 'js/question.js' %}"></script>
+<script src="{% static 'js/question.js' %}"></script> -->
 <div class="game-wrapper">
   <div class="top-bar-container">
     <div class="user-info">
@@ -20,7 +20,7 @@
     </div>
 
     <div class="round-info-container">
-      <div class="category">Category: {{category}}</div>
+      <div class="category">Category: {{question.category}}</div>
     </div>
     <div class="ham-btn">
       <img width="32px" src="" alt="" />
