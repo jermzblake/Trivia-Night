@@ -8,4 +8,5 @@ urlpatterns = [
   path('question', views.question, name='question'),
   path('intermission', views.intermission, name='intermission'),
   path('waiting', views.waiting, name='waiting'),
+  path('accounts/signup/', views.signup, name='signup'),
 ]

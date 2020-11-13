@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from .models import State, Question, Result
 from datetime import datetime, timezone, timedelta
 
+# Django signup
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+
 # TO DEFINE LENGTH OF TIME FOR QUESTION AND INTERMISSION PERIOD
 question_time = 20000
 intermission_time = 10000
@@ -91,3 +95,20 @@ def get_question():
     state = State.objects.first()
     state.question = new_question
     state.save()
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is what creates a user object that has the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # The saves the user to the database if the form is valid
+      user = form.save()
+      login(request, user)
+      return redirect('login')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # Error Handling. We should make a cool 404 page.
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
