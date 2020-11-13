@@ -25,6 +25,7 @@
       </div>
     </div>
 
+
     <div class="round-info-container">
       <div class="category">Category: {{question.category}}</div>
     </div>
@@ -57,5 +58,7 @@
 <script>
   progressJs(".question-container").start().set(100).autoIncrease(-1, 200);
 </script>
+
+<script src="{% static 'js/question.js' %}"></script>
 
 {% endblock %}
