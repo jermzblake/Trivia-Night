@@ -1,25 +1,52 @@
-{% extends 'base.html' %}
-{% block content %}
-{% load static %}
-<script>let time_left = {{ time_left }}</script>
+{% extends 'base.html' %} {% block content %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/question.css' %}" />
+<script>
+  let time_left = {{ time_left }}
+</script>
 <script src="{% static 'js/question.js' %}"></script>
+<div class="game-wrapper">
+  <div class="top-bar-container">
+    <div class="user-info">
+      <div class="avatar">
+        <div class="avatar-wrap">
+          <img
+            id="avatar-pic"
+            width="48px"
+            src="{% static 'imgs/avatar.png' %}"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
 
-<section class="section">
-  <!-- <div class="container"> -->
-    <!-- Question container -->
-    <div class="question">{{ question.question }}</div> 
-</section>
-
-<!-- <section class="section"> -->
-  <div class="container">
-    <!-- Answers rows -->
-    {% for answer in question.choices %}
-      <div class="answer"> {{ answer }}</div>
-    {% endfor %}
+    <div class="round-info-container">
+      <div class="category">Category: {{category}}</div>
+    </div>
+    <div class="ham-btn">
+      <img width="32px" src="" alt="" />
+    </div>
   </div>
+  <div class="question-container">
+    <div class="question-title">
+      <span id="question-title-txt">Question:</span>
+    </div>
+    <!-- <div class="container"> -->
+    <!-- Question container -->
+    <div class="question">{{ question.question }}</div>
+  </div>
+
+  <!-- <section class="section"> -->
+  <div class="choice-wrapper">
+    <div class="container">
+      <!-- Answers rows -->
+      {% for answer in question.choices %}
+      <div class="answer">{{ answer }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 <!-- </section> -->
 
-<h1 id='score'>1000</h1>
+<h1 id="score">1000</h1>
 
 {% endblock %}
-
