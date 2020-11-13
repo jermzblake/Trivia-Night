@@ -5,6 +5,7 @@ from datetime import datetime, timezone, timedelta
 # Django signup
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 # TO DEFINE LENGTH OF TIME FOR QUESTION AND INTERMISSION PERIOD
 question_time = 10000
@@ -19,6 +20,7 @@ import html
 import random
 
 # When we trigger a refresh for a user, they are sent to this view. This view redirects them based on current game state.
+@login_required
 def switchboard(request):
 
   # Set state variable representing current state of game
@@ -57,6 +59,7 @@ def switchboard(request):
       return redirect('intermission')
 
 # User will be sent to this view from the switchboard if the game state is question
+@login_required
 def question(request):
   # Set variables representing current state, time_left until next state change and question object
   state = State.objects.first()
@@ -65,6 +68,7 @@ def question(request):
   # Render question.html
   return render(request, 'game/question.html', {'time_left': time_left, 'question': question})
 
+@login_required
 def intermission(request):
   state = State.objects.first()
   category = state.question.category
@@ -72,6 +76,7 @@ def intermission(request):
   return render(request, 'game/intermission.html', {'time_left': time_left, 'category': category})
 
 # When a user selects an answer, they are directed to this flow which determines whether it was correct, adds the result to the db and renders a waiting room until the intermission state
+@login_required
 def waiting(request, answer, score):
   # Set variable representing current state
   state = State.objects.first()
