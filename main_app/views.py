@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import State, Question, Result
 from datetime import datetime, timezone, timedelta
+from django.db.models import Sum
 
 # Django signup
 from django.contrib.auth import login
@@ -73,7 +74,8 @@ def intermission(request):
   state = State.objects.first()
   category = state.question.category
   time_left = ((state.time_stamp + timedelta(microseconds=(intermission_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
-  return render(request, 'game/intermission.html', {'time_left': time_left, 'category': category})
+  leaderboards = get_leaderboards()
+  return render(request, 'game/intermission.html', {'time_left': time_left, 'category': category, 'leaderboards':leaderboards})
 
 # When a user selects an answer, they are directed to this flow which determines whether it was correct, adds the result to the db and renders a waiting room until the intermission state
 @login_required
@@ -153,3 +155,32 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+def get_leaderboards():
+  now = datetime.now(timezone.utc)
+
+  hour = Result.objects.filter(time_stamp__gte= now - timedelta(hours=1)).values('user__username').annotate(Sum('points')).order_by('-points__sum')
+  print(f"Hour: {hour}")
+
+  day = Result.objects.filter(time_stamp__gte= now - timedelta(days=1)).values('user').annotate(Sum('points')).order_by('-points__sum')
+  print(f"Day: {day}")
+
+  week = Result.objects.filter(time_stamp__gte= now - timedelta(days=7)).values('user').annotate(Sum('points')).order_by('-points__sum')
+  print(f"Week: {week}")
+
+  month = Result.objects.filter(time_stamp__gte= now - timedelta(days=30)).values('user').annotate(Sum('points')).order_by('-points__sum')
+  print(f"Month: {month}")
+
+  alltime = Result.objects.values('user').annotate(Sum('points')).order_by('-points__sum')
+  print(f"All Time: {alltime}")
+
+  leaderboards = {
+    'hour': hour,
+    'day': day,
+    'week': week,
+    'month': month,
+    'alltime': alltime
+  }
+
+  return leaderboards
+

@@ -8,5 +8,18 @@
 <h1>Next category: {{category}}</h1>
 <h1>{{time_left}}</h1>
 
+<table>
+  <tr>
+    <th>User</th>
+    <th>Points</th>
+  </tr>
+  {% for user in leaderboards.hour %}
+    <tr>
+      <td>{{ user.user__username }}</td>
+      <td>{{ user.points__sum }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
 {% endblock %}
 
