@@ -7,7 +7,7 @@ question_time = 20000
 intermission_time = 10000
 
 # imports for the api
-# import requests
+import requests
 import json
 from html.parser import HTMLParser
 from html import unescape
@@ -40,15 +40,14 @@ def switchboard(request):
 def question(request):
   state = State.objects.first()
   time_left = ((state.time_stamp + timedelta(microseconds=(question_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
-  question = state.question.question
-  
-  print(question)
-  return render(request, 'game/question.html', {'time_left': time_left})
+  question = state.question
+  return render(request, 'game/question.html', {'time_left': time_left, 'question': question})
 
 def intermission(request):
   state = State.objects.first()
+  category = state.question.category
   time_left = ((state.time_stamp + timedelta(microseconds=(intermission_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
-  return render(request, 'game/intermission.html', {'time_left': time_left})
+  return render(request, 'game/intermission.html', {'time_left': time_left, 'category': category})
 
 def waiting(request):
   get_question()

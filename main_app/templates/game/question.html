@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+<script>let time_left = {{ time_left }}</script>
+<script src="{% static 'js/question.js' %}"></script>
 
 <section class="section">
   <div class="container">
     <!-- Question container -->
-    <div class="question">Question</div> 
+    <div class="question">{{ question.question }}</div> 
   </div>
 </section>
 
 <!-- <section class="section"> -->
   <div class="container">
     <!-- Answers rows -->
-    <div class="answer"> AnswerA test</div>
-    <div class="answer"> AnswerB test</div>
-    <div class="answer"> AnswerC test</div>
-    <div class="answer"> AnswerD test</div>
+    <div class="answer"> {{ question.choices.0 }}</div>
+    <div class="answer"> {{ question.choices.1 }}</div>
+    <div class="answer"> {{ question.choices.2 }}</div>
   </div>
 <!-- </section> -->
 
