@@ -13,11 +13,13 @@
 <!-- <section class="section"> -->
   <div class="container">
     <!-- Answers rows -->
-    <div class="answer"> {{ question.choices.0 }}</div>
-    <div class="answer"> {{ question.choices.1 }}</div>
-    <div class="answer"> {{ question.choices.2 }}</div>
+    {% for answer in question.choices %}
+      <div class="answer"> {{ answer }}</div>
+    {% endfor %}
   </div>
 <!-- </section> -->
+
+<h1 id='score'>1000</h1>
 
 {% endblock %}
 
