@@ -76,3 +76,11 @@
 .category {
   font-size: 0.8rem;
 }
+
+.progressjs-theme-blue .progressjs-inner {
+  z-index: -1;
+  height: 125px;
+  transition: all 0.3s ease-out;
+  background-color: rgba(255, 0, 0, 0.479);
+  border-radius: 8px;
+}

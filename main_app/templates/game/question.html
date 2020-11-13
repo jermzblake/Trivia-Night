@@ -3,12 +3,9 @@
 <link
   rel="stylesheet"
   type="text/css"
-  href="{% static 'quiz/progress.min.css' %}"
+  href="{% static 'js/progress.min.css' %}"
 />
-<script
-  type="text/javascript"
-  src="{% static 'quiz/progress.min.js' %}"
-></script>
+<script type="text/javascript" src="{% static 'js/progress.min.js' %}"></script>
 <script>
   let time_left = {{ time_left }}
 </script>
@@ -57,5 +54,8 @@
 <!-- </section> -->
 
 <h1 id="score">1000</h1>
+<script>
+  progressJs(".question-container").start().set(100).autoIncrease(-1, 200);
+</script>
 
 {% endblock %}
