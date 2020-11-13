@@ -1,9 +1,18 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/question.css' %}" />
-<!-- <script>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'quiz/progress.min.css' %}"
+/>
+<script
+  type="text/javascript"
+  src="{% static 'quiz/progress.min.js' %}"
+></script>
+<script>
   let time_left = {{ time_left }}
 </script>
-<script src="{% static 'js/question.js' %}"></script> -->
+<script src="{% static 'js/question.js' %}"></script>
 <div class="game-wrapper">
   <div class="top-bar-container">
     <div class="user-info">
@@ -23,7 +32,7 @@
       <div class="category">Category: {{question.category}}</div>
     </div>
     <div class="ham-btn">
-      <img width="32px" src="" alt="" />
+      <img width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
     </div>
   </div>
   <div class="question-container">
