@@ -41,17 +41,3 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
-
-main {
-  flex: 1 0 auto;
-}
-
-.question {
-  border: 2px solid red;
-  border-radius: 15px;
-  padding: 1em;
-}
-
-.container {
-  border: 1px solid green;
-}

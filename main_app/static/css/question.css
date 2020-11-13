@@ -49,9 +49,6 @@
   left: 10px;
   padding: 2px;
 }
-.container {
-  border: 0px solid green;
-}
 
 .answer {
   text-align: center;
@@ -59,12 +56,12 @@
   width: 300px;
   height: 45px;
   background-color: #eee;
-  border: 0px solid blue;
   border-radius: 8px;
   margin: 1rem;
   align-content: center;
   padding: 1em;
 }
+
 .answer:hover {
   transform: scale(1.1);
   color: var(--blue);
