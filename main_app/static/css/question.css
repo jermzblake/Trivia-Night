@@ -22,20 +22,33 @@
   padding: 10px;
   text-align: center;
   color: black;
-  margin: 10px;
   width: 300px;
   height: 125px;
   background-color: #eee;
   border-radius: 8px;
   width: 300px;
+  position: relative;
 }
 
 .question {
   border: 0px solid red;
   border-radius: 15px;
+  font-size: 1rem;
   padding: 0em;
+  height: 125px;
+  margin-top: 20px;
 }
 
+#question-title-txt {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border: 2px black solid;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: 10px;
+  padding: 2px;
+}
 .container {
   border: 0px solid green;
 }
@@ -51,7 +64,12 @@
   margin: 1rem;
   align-content: center;
 }
-
+.answer:hover {
+  transform: scale(1.1);
+  color: var(--blue);
+  transition: ease-out 100ms;
+  background-color: var(--hover-bg);
+}
 .user-info {
   display: flex;
   flex-direction: column;
@@ -86,5 +104,5 @@
 }
 
 .progressjs-percent {
-  color:transparent;
+  color: transparent;
 }
