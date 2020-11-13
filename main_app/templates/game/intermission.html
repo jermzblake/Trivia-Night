@@ -1,16 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
+<script>let time_left = {{ time_left }}</script>
+<script src="{% static 'js/intermission.js' %}"></script>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script>var time_left = {{ time_left }}</script>
-  <script defer src="{% static 'js/intermission.js' %}"></script>
-</head>
-<body>
-  Intermission
-  {{ time_left }}
-</body>
-</html>
+<h1>Intermission</h1>
+<h1>Next category: {{category}}</h1>
+<h1>{{time_left}}</h1>
+
+{% endblock %}
+
