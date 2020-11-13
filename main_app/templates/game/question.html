@@ -1,15 +1,9 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/question.css' %}" />
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'js/progress.min.css' %}"
-/>
 <script type="text/javascript" src="{% static 'js/progress.min.js' %}"></script>
 <script>
   let time_left = {{ time_left }}
 </script>
-<script src="{% static 'js/question.js' %}"></script>
 <div class="game-wrapper">
   <div class="top-bar-container">
     <div class="user-info">
@@ -24,7 +18,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="round-info-container">
       <div class="category">Category: {{question.category}}</div>
@@ -54,7 +47,6 @@
 </div>
 <!-- </section> -->
 
-<h1 id="score">1000</h1>
 <script>
   progressJs(".question-container").start().set(100).autoIncrease(-1, 200);
 </script>
