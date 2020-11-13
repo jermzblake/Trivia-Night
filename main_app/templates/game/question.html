@@ -7,29 +7,20 @@
 <section class="section">
   <!-- <div class="container"> -->
     <!-- Question container -->
-<<<<<<< HEAD
-    <div id="question" class="question">Question</div> 
-=======
     <div class="question">{{ question.question }}</div> 
->>>>>>> seb-questiontemplate
   </div>
 </section>
 
 <!-- <section class="section"> -->
   <div class="container">
     <!-- Answers rows -->
-<<<<<<< HEAD
-    <div id="ansrA" class="answer"> AnswerA test</div>
-    <div id="ansrB" class="answer"> AnswerB test</div>
-    <div id="ansrC" class="answer"> AnswerC test</div>
-    <div id="ansrD" class="answer"> AnswerD test</div>
-=======
-    <div class="answer"> {{ question.choices.0 }}</div>
-    <div class="answer"> {{ question.choices.1 }}</div>
-    <div class="answer"> {{ question.choices.2 }}</div>
->>>>>>> seb-questiontemplate
+    {% for answer in question.choices %}
+      <div class="answer"> {{ answer }}</div>
+    {% endfor %}
   </div>
 <!-- </section> -->
+
+<h1 id='score'>1000</h1>
 
 {% endblock %}
 
