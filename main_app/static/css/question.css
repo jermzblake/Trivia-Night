@@ -84,3 +84,7 @@
   background-color: rgba(255, 0, 0, 0.479);
   border-radius: 8px;
 }
+
+.progressjs-percent {
+  color:transparent;
+}

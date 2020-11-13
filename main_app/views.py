@@ -66,14 +66,17 @@ def question(request):
   state = State.objects.first()
   time_left = ((state.time_stamp + timedelta(microseconds=(question_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
   question = state.question
+  # Get leaderboards object
+  leaderboards = get_leaderboards()
   # Render question.html
-  return render(request, 'game/question.html', {'time_left': time_left, 'question': question})
+  return render(request, 'game/question.html', {'time_left': time_left, 'question': question, 'leaderboards':leaderboards})
 
 @login_required
 def intermission(request):
   state = State.objects.first()
   category = state.question.category
   time_left = ((state.time_stamp + timedelta(microseconds=(intermission_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
+  # Get leaderboards object
   leaderboards = get_leaderboards()
   return render(request, 'game/intermission.html', {'time_left': time_left, 'category': category, 'leaderboards':leaderboards})
 
@@ -95,49 +98,51 @@ def waiting(request, answer, score):
   new_result.save()
   # Set variable time_left equal to the remaining time in the question state
   time_left = ((state.time_stamp + timedelta(microseconds=(question_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
+  # Get leaderboards object
+  leaderboards = get_leaderboards()
   # Render waiting.html
-  return render(request, 'game/waiting.html', {'score':score, 'time_left':time_left})
+  return render(request, 'game/waiting.html', {'score':score, 'time_left':time_left, 'leaderboards':leaderboards})
 
 def get_question():
   
-    # The call to the api and the response being converted into json
-    response = requests.get('https://opentdb.com/api.php?amount=1')
-    data = response.json()
+  # The call to the api and the response being converted into json
+  response = requests.get('https://opentdb.com/api.php?amount=1')
+  data = response.json()
 
-    # Raw data that is retrieved from api     
-    incorrect_answers = data['results'][0]['incorrect_answers']
-    correct_answer = data['results'][0]['correct_answer']
-    category = data['results'][0]['category']
-    question = data['results'][0]['question']
-    difficulty = data['results'][0]['difficulty']
+  # Raw data that is retrieved from api     
+  incorrect_answers = data['results'][0]['incorrect_answers']
+  correct_answer = data['results'][0]['correct_answer']
+  category = data['results'][0]['category']
+  question = data['results'][0]['question']
+  difficulty = data['results'][0]['difficulty']
 
-    #Data that is 'unescaped' to deal with unicode issues.
-    question_string = html.unescape(question)
-    answer_string = html.unescape(correct_answer)
-    wrong_answer_pool = html.unescape(incorrect_answers)
-    category_string = html.unescape(category)
-    difficulty_string = html.unescape(difficulty)
+  #Data that is 'unescaped' to deal with unicode issues.
+  question_string = html.unescape(question)
+  answer_string = html.unescape(correct_answer)
+  wrong_answer_pool = html.unescape(incorrect_answers)
+  category_string = html.unescape(category)
+  difficulty_string = html.unescape(difficulty)
 
-    # This creates a answer pool in a random order using random method
-    wrong_answer_pool += [answer_string]  
-    wrong_answer_pool = random.sample(wrong_answer_pool,len(wrong_answer_pool))
-    # wrong_answer_pool is now a radomized list with the answer as well
+  # This creates a answer pool in a random order using random method
+  wrong_answer_pool += [answer_string]  
+  wrong_answer_pool = random.sample(wrong_answer_pool,len(wrong_answer_pool))
+  # wrong_answer_pool is now a radomized list with the answer as well
 
-    # Create new instance of Question model
-    new_question = Question(
-      question=question_string,
-      choices=wrong_answer_pool,
-      time_stamp=datetime.now(timezone.utc),
-      correct_choice=answer_string,
-      category=category_string,
-      difficulty=difficulty_string
-    )
-    new_question.save()
+  # Create new instance of Question model
+  new_question = Question(
+    question=question_string,
+    choices=wrong_answer_pool,
+    time_stamp=datetime.now(timezone.utc),
+    correct_choice=answer_string,
+    category=category_string,
+    difficulty=difficulty_string
+  )
+  new_question.save()
 
-    # Save new instance of Question as the question in State
-    state = State.objects.first()
-    state.question = new_question
-    state.save()
+  # Save new instance of Question as the question in State
+  state = State.objects.first()
+  state.question = new_question
+  state.save()
 
 def signup(request):
   error_message = ''
@@ -157,23 +162,18 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 def get_leaderboards():
+  
+  # Set variable for current time
   now = datetime.now(timezone.utc)
 
+  # Create queries for each leaderboard that sum points by user
   hour = Result.objects.filter(time_stamp__gte= now - timedelta(hours=1)).values('user__username').annotate(Sum('points')).order_by('-points__sum')
-  print(f"Hour: {hour}")
+  day = Result.objects.filter(time_stamp__gte= now - timedelta(days=1)).values('user__username').annotate(Sum('points')).order_by('-points__sum')
+  week = Result.objects.filter(time_stamp__gte= now - timedelta(days=7)).values('user__username').annotate(Sum('points')).order_by('-points__sum')
+  month = Result.objects.filter(time_stamp__gte= now - timedelta(days=30)).values('user__username').annotate(Sum('points')).order_by('-points__sum')
+  alltime = Result.objects.values('user__username').annotate(Sum('points')).order_by('-points__sum')
 
-  day = Result.objects.filter(time_stamp__gte= now - timedelta(days=1)).values('user').annotate(Sum('points')).order_by('-points__sum')
-  print(f"Day: {day}")
-
-  week = Result.objects.filter(time_stamp__gte= now - timedelta(days=7)).values('user').annotate(Sum('points')).order_by('-points__sum')
-  print(f"Week: {week}")
-
-  month = Result.objects.filter(time_stamp__gte= now - timedelta(days=30)).values('user').annotate(Sum('points')).order_by('-points__sum')
-  print(f"Month: {month}")
-
-  alltime = Result.objects.values('user').annotate(Sum('points')).order_by('-points__sum')
-  print(f"All Time: {alltime}")
-
+  # Create and return leaderboards object
   leaderboards = {
     'hour': hour,
     'day': day,
@@ -181,6 +181,5 @@ def get_leaderboards():
     'month': month,
     'alltime': alltime
   }
-
   return leaderboards
 
