@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 # TO DEFINE LENGTH OF TIME FOR QUESTION AND INTERMISSION PERIOD
 question_time = 20
-intermission_time = 100000
+intermission_time = 15000
 
 # imports for the api
 import requests
