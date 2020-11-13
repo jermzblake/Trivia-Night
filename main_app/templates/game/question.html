@@ -2,7 +2,6 @@
 {% block content %}
 {% load static %}
 <script>let time_left = {{ time_left }}</script>
-<script src="{% static 'js/question.js' %}"></script>
 
 <section class="section">
   <!-- <div class="container"> -->
@@ -20,6 +19,8 @@
 <!-- </section> -->
 
 <h1 id='score'>1000</h1>
+
+<script src="{% static 'js/question.js' %}"></script>
 
 {% endblock %}
 

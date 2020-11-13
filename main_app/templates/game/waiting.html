@@ -6,6 +6,17 @@
   <title>Document</title>
 </head>
 <body>
-  Waiting
+
 </body>
 </html>
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<script>let time_left = {{ time_left }}</script>
+
+<h1>Wait until next question!</h1>
+<h1>You got {{score}} for the last one</h1>
+
+<script src="{% static 'js/waiting.js' %}"></script>
+{% endblock %}
