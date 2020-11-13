@@ -11,10 +11,11 @@
   align-items: center;
   color: black;
   width: 275px;
-  height: 100px;
+  height: 80px;
   margin: 10px;
   background-color: #eee;
   border-radius: 9px;
+  max-width: 320px;
 }
 
 .question-container {
@@ -26,6 +27,7 @@
   height: 125px;
   background-color: #eee;
   border-radius: 8px;
+  width: 300px;
 }
 
 .question {
@@ -48,4 +50,29 @@
   border-radius: 8px;
   margin: 1rem;
   align-content: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  color: red;
+  margin-right: auto;
+}
+
+.avatar {
+  position: absolute;
+  bottom: 88%;
+  padding: 10px;
+}
+.round-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: auto;
+}
+
+.category {
+  font-size: 0.8rem;
 }
