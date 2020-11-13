@@ -55,11 +55,3 @@ main {
 .container {
   border: 1px solid green;
 }
-
-.answer {
-  cursor: pointer;
-  border: 2px solid blue;
-  border-radius: 15px;
-  padding: 1em;
-  margin: 1em 2em 1.5em 1em;
-}
