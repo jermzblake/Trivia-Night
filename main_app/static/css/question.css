@@ -1,0 +1,90 @@
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.top-bar-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: black;
+  width: 275px;
+  height: 80px;
+  margin: 10px;
+  background-color: #eee;
+  border-radius: 9px;
+  max-width: 320px;
+}
+
+.question-container {
+  padding: 10px;
+  text-align: center;
+  color: black;
+  margin: 10px;
+  width: 300px;
+  height: 125px;
+  background-color: #eee;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.question {
+  border: 0px solid red;
+  border-radius: 15px;
+  padding: 0em;
+}
+
+.container {
+  border: 0px solid green;
+}
+
+.answer {
+  text-align: center;
+  color: black;
+  width: 300px;
+  height: 45px;
+  background-color: #eee;
+  border: 0px solid blue;
+  border-radius: 8px;
+  margin: 1rem;
+  align-content: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  color: red;
+  margin-right: auto;
+}
+
+.avatar {
+  position: absolute;
+  bottom: 88%;
+  padding: 10px;
+}
+.round-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: auto;
+}
+
+.category {
+  font-size: 0.8rem;
+}
+
+.progressjs-theme-blue .progressjs-inner {
+  z-index: -1;
+  height: 125px;
+  transition: all 0.3s ease-out;
+  background-color: rgba(255, 0, 0, 0.479);
+  border-radius: 8px;
+}
+
+.progressjs-percent {
+  color:transparent;
+}
