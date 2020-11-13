@@ -130,3 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# This variable is to specify where successful 
+# logins should redirect to from "registration/login.html"
+LOGIN_REDIRECT_URL = 'switchboard'
