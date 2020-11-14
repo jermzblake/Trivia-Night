@@ -41,3 +41,22 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.top-bar-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: black;
+  width: 275px;
+  height: 80px;
+  margin: 10px;
+  background-color: #eee;
+  border-radius: 9px;
+  max-width: 320px;
+}
