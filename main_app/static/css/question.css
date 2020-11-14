@@ -74,7 +74,6 @@
 .user-info {
   display: flex;
   flex-direction: column;
-  color: red;
   margin-right: auto;
 }
 

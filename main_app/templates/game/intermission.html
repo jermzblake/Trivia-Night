@@ -1,36 +1,65 @@
-{% extends 'base.html' %}
-{% block content %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/intermission.css' %}" />
-<script>let time_left = {{ time_left }}</script>
+{% extends 'base.html' %} {% block content %} {% load static %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/intermission.css' %}"
+/>
+<script>
+  let time_left = {{ time_left }}
+</script>
 <script src="{% static 'js/intermission.js' %}"></script>
 
-<div class="category">
-    <h1>Choosing A Category...</h1>
-</div>
+<div class="game-wrapper">
+  <div class="top-bar-container">
+    <div class="user-info">
+      <div class="avatar">
+        <div class="avatar-wrap">
+          <img
+            id="avatar-pic"
+            width="48px"
+            src="{% static 'imgs/avatar.png' %}"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
 
-
-<div class="base-timer">
-    <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <g class="base-timer__circle">
-        <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
-        <path id="base-timer-path-remaining" stroke-dasharray="283"
+    <div class="round-info-container"><h1>Choosing A Category...</h1></div>
+    <div class="ham-btn">
+      <img width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
+    </div>
+  </div>
+  <div class="question-container">
+    <div class="base-timer">
+      <svg
+        class="base-timer__svg"
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g class="base-timer__circle">
+          <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
+          <path
+            id="base-timer-path-remaining"
+            stroke-dasharray="283"
             class="base-timer__path-remaining green"
             d="
-            M 50, 50
-            m -45, 0
-            a 45,45 0 1,0 90,0
-            a 45,45 0 1,0 -90,0
-            ">
-      </path>
-      </g>
-    </svg>
-    <span id="base-timer-label" class="base-timer__label">
-      <!-- Next category label -->
-      {{category}}
-    </span>
+                M 50, 50
+                m -45, 0
+                a 45,45 0 1,0 90,0
+                a 45,45 0 1,0 -90,0
+                "
+          ></path>
+        </g>
+      </svg>
+      <span id="base-timer-label" class="base-timer__label">
+        <!-- Next category label -->
+        {{category}}
+      </span>
+    </div>
+    <!-- <div class="container"> -->
+    <!-- Question container -->
+    <div class="question">{{ question.question }}</div>
+  </div>
 </div>
-  
 
 {% endblock %}
-
