@@ -165,8 +165,8 @@ def signup(request):
 def play(request):
   return render(request, 'main_app/play.html')
 
-def about(request):
-  return render(request, 'main_app/about.html')
+def info(request):
+  return render(request, 'main_app/info.html')
 
 def get_leaderboards():
   
