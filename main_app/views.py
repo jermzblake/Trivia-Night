@@ -165,6 +165,9 @@ def signup(request):
 def play(request):
   return render(request, 'main_app/play.html')
 
+def about(request):
+  return render(request, 'main_app/about.html')
+
 def get_leaderboards():
   
   # Set variable for current time

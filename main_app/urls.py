@@ -9,5 +9,6 @@ urlpatterns = [
   path('intermission', views.intermission, name='intermission'),
   path('waiting/<str:answer>/<int:score>', views.waiting, name='waiting'),
   path('accounts/signup/', views.signup, name='signup'),
-  path('play', views.play, name='play')
+  path('play', views.play, name='play'),
+  path('about', views.about, name="about")
 ]
