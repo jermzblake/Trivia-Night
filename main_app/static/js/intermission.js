@@ -45,14 +45,13 @@ function formatTime(time) {
 }
 
 // // Start with an initial value of time_left seconds
-const TIME_LIMIT = time_left - 2000;
+const TIME_LIMIT = time_left - (time_left % (Math.floor(time_left/1000)*1000)) - 1000;
+console.log(TIME_LIMIT)
 
 // // Initially, no time has passed, but this will count up
 // and subtract from the TIME_LIMIT
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
-
-console.log(timeLeft)
 
 function startTimer() {
   timerInterval = setInterval(function (){
@@ -62,7 +61,6 @@ function startTimer() {
     // Remaining Path Color change
     setRemainingPathColor(timeLeft)
     //update our path each second that passes
-    console.log(timeLeft)
     setCircleDasharray();
     }, 1000);
 }
@@ -96,14 +94,11 @@ function setRemainingPathColor(timeLeft) {
 
 // Divides time left by the defined time limit.
 function calculateTimeFraction() {
-  console.log(timeLeft)
-  console.log(timeLeft > 0)
   if (timeLeft > 0) {
     rawTimeFraction = timeLeft / TIME_LIMIT;
   } else {
     rawTimeFraction = 0
   }
-  console.log(rawTimeFraction * TIME_LIMIT)
   return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
 }
     
@@ -112,7 +107,6 @@ function setCircleDasharray() {
   const circleDasharray = `${(
     calculateTimeFraction() * FULL_DASH_ARRAY
   ).toFixed(0)} 283`;
-  console.log(circleDasharray)
   document
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
