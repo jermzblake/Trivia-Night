@@ -77,15 +77,15 @@ main {
 }
 
 .base-timer__path-remaining.green {
-  color: rgb(65, 184, 131);
+  color:#2da76b;
 }
 
 .base-timer__path-remaining.orange {
-  color: orange;
+  color: #f66530;
 }
 
 .base-timer__path-remaining.red {
-  color: red;
+  color: #e74c3c;
 }
 
 .base-timer__svg {
