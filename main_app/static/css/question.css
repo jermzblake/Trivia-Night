@@ -42,11 +42,9 @@
 
 #question-title-txt {
   font-size: 1.1rem;
-  text-transform: uppercase;
-  border: 2px black solid;
   position: absolute;
-  background-color: white;
-  top: 0;
+  background-color: transparent;
+  top: 10%;
   left: 10px;
   padding: 2px;
   z-index: 1;
@@ -78,8 +76,6 @@
 }
 
 .avatar {
-  position: absolute;
-  bottom: 88%;
   padding: 10px;
 }
 .round-info-container {

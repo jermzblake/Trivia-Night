@@ -11,6 +11,7 @@
 :root {
   /* Colors */
   --main-bg-color: #f5f4f5;
+  --box-color: #eee;
   --font-color: #424242;
   --second-font: #727272;
   --hover-bg: #d3d1d3;
@@ -59,4 +60,15 @@ body {
   background-color: #eee;
   border-radius: 9px;
   max-width: 320px;
+}
+.avatar {
+  padding: 10px;
+}
+
+.ham-btn {
+  margin-left: auto;
+  margin: 4px;
+}
+#ham {
+  margin-left: auto;
 }

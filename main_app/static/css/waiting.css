@@ -1,0 +1,13 @@
+.waiting-container {
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: var(--box-color);
+  border-radius: var(--border-radius);
+}
+.ham-btn {
+  margin-left: auto;
+}
+.score-color {
+  color: var(--green);
+  font-size: 2rem;
+}
