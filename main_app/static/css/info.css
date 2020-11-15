@@ -25,7 +25,7 @@ body {
     height: 800px;
     /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
     perspective: 400px;
-    /* The rest is totally up to personal styling preferences */
+    /* Style the content to our liking */
     color: #feda4a;
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 500%;
@@ -42,8 +42,8 @@ body {
     top: -100px;
     /* Defines the skew origin at the very center when we apply transforms on the animation */
     transform-origin: 50% 100%;
-     /* Adds the crawl animation, which plays for one minute */
-    animation: crawl 60s linear;
+     /* Adds the crawl animation, which plays for half a minute */
+    animation: crawl 30s linear;
 }
 
 .crawl > .title {
@@ -51,9 +51,14 @@ body {
   text-align: center;
 }
 
-.crawl > .title h1 {
+.crawl > .title h1{
   margin: 0 0 100px;
   text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: #feda4a;
 }
   
 /* We're calling this animation "crawl" */
