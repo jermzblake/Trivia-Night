@@ -14,11 +14,10 @@
   width: 50%;
   color: white;
   border-radius: var(--border-radius);
-
   color: red;
 }
 
-.not-active {
+.closed {
   clip-path: circle(60px at 80% -10%);
   -webkit-clip-path: circle(60px at 90% -20%);
 }

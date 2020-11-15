@@ -1,14 +1,9 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/question.css' %}" />
 <script type="text/javascript" src="{% static 'js/progress.min.js' %}"></script>
-<script
-  defer
-  type="text/javascript"
-  src="{% static 'js/hamburger.js' %}"
-></script>
-<!-- <script>
+<script>
   let time_left = {{ time_left }}
-</script> -->
+</script>
 <div class="game-wrapper">
   <div class="top-bar-container">
     <div class="user-info">
@@ -29,15 +24,7 @@
     </div>
     <div class="ham-btn">
       <img id="ham" width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
-      <div id="side-menu" class="">
-        <ol>
-          <ol>
-            {% for row in leaderboards.alltime %}
-            <li>{{ row }}</li>
-            {% endfor %}
-          </ol>
-        </ol>
-      </div>
+      <div id="side-menu" class="">We are going to put sweet stats here.</div>
     </div>
   </div>
   <div class="question-container">
