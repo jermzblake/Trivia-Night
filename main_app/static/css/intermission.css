@@ -1,13 +1,6 @@
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+.choosing-category-text {
+  font-size: 1rem;
 }
-
-main {
-  flex: 1 0 auto;
-}
-
 .category {
   background-color: var(--box-);
   border: 2px solid red;

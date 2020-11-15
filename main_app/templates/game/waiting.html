@@ -20,7 +20,7 @@
 
     <div class="round-info-container"></div>
     <div class="ham-btn">
-      <img id="ham" width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
+      <img id="ham" width="32px" src="{% static 'imgs/ham.png' %}" alt="" />
       <div id="side-menu" class="">We are going to put sweet stats here.</div>
     </div>
   </div>
@@ -29,6 +29,11 @@
     <span class="score"
       >You got <span class="score-color">{{score}}</span> for the last one</span
     >
+    <!-- <ul>
+      {% for data in leaderboards.alltime %} {%for inv in data%}
+      <li>{{inv.score}}</li>
+      {% endfor %} {% endfor %}
+    </ul> -->
   </div>
 
   <script src="{% static 'js/waiting.js' %}"></script>
