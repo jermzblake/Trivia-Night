@@ -27,7 +27,14 @@
     <div class="choosing-category-text">Choosing A Category...</div>
     <div class="ham-btn">
       <img id="ham" width="32px" src="{% static 'imgs/ham.png' %}" alt="" />
-      <div id="side-menu" class="">We are going to put sweet stats here.</div>
+      <div id="side-menu" class="">
+        <label for="leaderboard">Choose a leaderboard:</label>
+        <select name="leaderboards">
+          {% for data in leaderboards %}
+          <option value="{{data}}">{{data}}</option>
+          {% endfor %}
+        </select>
+      </div>
     </div>
   </div>
   <div class="question-container">
