@@ -23,7 +23,15 @@
       <div class="category">Category: {{question.category}}</div>
     </div>
     <div class="ham-btn">
-      <img width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
+      <img id="ham" width="32px" src="{% static 'imgs/ham.png' %}" alt="" />
+      <div id="side-menu" class="">
+        <label for="leaderboard">Choose a leaderboard:</label>
+        <select name="leaderboards">
+          {% for data in leaderboards %}
+          <option value="{{data}}">{{data}}</option>
+          {% endfor %}
+        </select>
+      </div>
     </div>
   </div>
   <div class="question-container">
@@ -31,7 +39,6 @@
       <span id="question-title-txt">{{ question.question }}</span>
     </div>
   </div>
-
   <!-- <section class="section"> -->
   <div class="choice-wrapper">
     <div class="container">

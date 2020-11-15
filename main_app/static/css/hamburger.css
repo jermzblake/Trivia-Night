@@ -1,0 +1,22 @@
+.ham-btn {
+  z-index: 5;
+}
+#side-menu {
+  max-width: 270px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 40%;
+  top: 15%;
+  background-color: #000000df;
+  height: 300px;
+  width: 50%;
+  color: white;
+  border-radius: var(--border-radius);
+}
+
+.closed {
+  clip-path: circle(60px at 80% -10%);
+  -webkit-clip-path: circle(60px at 90% -20%);
+}

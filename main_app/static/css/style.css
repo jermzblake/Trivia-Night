@@ -1,6 +1,7 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800;900&family=Roboto:wght@300;400;700;900&display=swap");
 
+/* Global reset and font family set */
 * {
   font-family: var(--font-roboto);
   padding: 0;
@@ -8,6 +9,9 @@
   box-sizing: border-box;
 }
 
+/* Variables you can use in any css file 
+throughout the 
+project with: Ex. var(--nameOfVar) */
 :root {
   /* Colors */
   --main-bg-color: #f5f4f5;
@@ -38,9 +42,8 @@
 
 body {
   font-family: var(--font-robto);
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+  background-color: var(--main-bg-color);
+  height: 100vh;
 }
 .game-wrapper {
   display: flex;
@@ -57,8 +60,8 @@ body {
   width: 275px;
   height: 80px;
   margin: 10px;
-  background-color: #eee;
-  border-radius: 9px;
+  background-color: var(--box-color);
+  border-radius: var(--border-radius);
   max-width: 320px;
 }
 .avatar {
@@ -68,6 +71,7 @@ body {
 .ham-btn {
   margin-left: auto;
   margin: 4px;
+  cursor: pointer;
 }
 #ham {
   margin-left: auto;
