@@ -7,9 +7,9 @@ setTimeout (function() {
 let timerInterval = null;
 const FULL_DASH_ARRAY = 283;
 // Warning occurs at 10s
-const WARNING_THRESHOLD = 10000;
+const WARNING_THRESHOLD = time_left * 2 / 3;
 // Alert occurs at 5s
-const ALERT_THRESHOLD = 5000;
+const ALERT_THRESHOLD = time_left / 3;
 
 // colours for the time remaining ring
 const COLOR_CODES = {
@@ -45,7 +45,8 @@ function formatTime(time) {
 }
 
 // // Start with an initial value of time_left seconds
-const TIME_LIMIT = time_left;
+const TIME_LIMIT = time_left - (time_left % (Math.floor(time_left/1000)*1000)) - 1000;
+console.log(TIME_LIMIT)
 
 // // Initially, no time has passed, but this will count up
 // and subtract from the TIME_LIMIT
@@ -68,7 +69,6 @@ startTimer()
 
 function setRemainingPathColor(timeLeft) {
   const { alert, warning, info } = COLOR_CODES;
- console.log(timeLeft <= warning.threshold)
   // If the remaining time is less than or equal to 5, remove the "warning" class and apply the "alert" class.
   if (timeLeft <= alert.threshold) {
     document
@@ -94,7 +94,11 @@ function setRemainingPathColor(timeLeft) {
 
 // Divides time left by the defined time limit.
 function calculateTimeFraction() {
-  const rawTimeFraction = timeLeft / TIME_LIMIT;
+  if (timeLeft > 0) {
+    rawTimeFraction = timeLeft / TIME_LIMIT;
+  } else {
+    rawTimeFraction = 0
+  }
   return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
 }
     
