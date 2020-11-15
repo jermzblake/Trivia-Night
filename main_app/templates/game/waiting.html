@@ -1,22 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %} {% block content %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/waiting.css' %}" />
+<div class="game-wrapper">
+  <div class="top-bar-container">
+    <div class="user-info">
+      <div class="avatar">
+        <div class="avatar-wrap">
+          <img
+            id="avatar-pic"
+            width="48px"
+            src="{% static 'imgs/avatar.png' %}"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
 
-</body>
-</html>
+    <div class="round-info-container">
+      <div class="category">Category: {{question.category}}</div>
+    </div>
+    <div class="ham-btn">
+      <img id="ham" width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
+    </div>
+  </div>
+  <div class="question-container">
+    <script>
+      let time_left = {{ time_left }}
+    </script>
 
-{% extends 'base.html' %}
-{% block content %}
-{% load static %}
-<script>let time_left = {{ time_left }}</script>
+    <h1>Wait until next question!</h1>
+    <h1>You got {{score}} for the last one</h1>
+  </div>
 
-<h1>Wait until next question!</h1>
-<h1>You got {{score}} for the last one</h1>
-
-<script src="{% static 'js/waiting.js' %}"></script>
-{% endblock %}
+  <script src="{% static 'js/waiting.js' %}"></script>
+  {% endblock %}
+</div>
