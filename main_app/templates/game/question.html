@@ -1,9 +1,14 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/question.css' %}" />
 <script type="text/javascript" src="{% static 'js/progress.min.js' %}"></script>
-<script>
+<script
+  defer
+  type="text/javascript"
+  src="{% static 'js/hamburger.js' %}"
+></script>
+<!-- <script>
   let time_left = {{ time_left }}
-</script>
+</script> -->
 <div class="game-wrapper">
   <div class="top-bar-container">
     <div class="user-info">
@@ -23,7 +28,16 @@
       <div class="category">Category: {{question.category}}</div>
     </div>
     <div class="ham-btn">
-      <img width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
+      <img id="ham" width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
+      <div id="side-menu" class="not-active">
+        <ol>
+          <ol>
+            {% for row in leaderboards.alltime %}
+            <li>{{ row }}</li>
+            {% endfor %}
+          </ol>
+        </ol>
+      </div>
     </div>
   </div>
   <div class="question-container">

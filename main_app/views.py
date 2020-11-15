@@ -181,5 +181,6 @@ def get_leaderboards():
     'month': month,
     'alltime': alltime
   }
+
   return leaderboards
 
