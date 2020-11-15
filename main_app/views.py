@@ -80,7 +80,8 @@ def intermission(request):
   leaderboards = get_leaderboards()
   return render(request, 'game/intermission.html', {'time_left': time_left, 'category': category, 'leaderboards':leaderboards})
 
-# When a user selects an answer, they are directed to this flow which determines whether it was correct, adds the result to the db and renders a waiting room until the intermission state
+# When a user selects an answer, they are directed to this flow which determines whether it was correct, 
+# adds the result to the db and renders a waiting room until the intermission state
 @login_required
 def waiting(request, answer, score):
   # Set variable representing current state
@@ -160,6 +161,9 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+def play(request):
+  return render(request, 'main_app/play.html')
 
 def get_leaderboards():
   
