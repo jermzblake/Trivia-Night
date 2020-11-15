@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/info.css' %}" />
+
+<div class="fade"></div>
+
+<section class="star-wars">
+
+    <div class="crawl">
+        
+        <div class="title">
+        <p>About</p>
+        <!-- heading is also a link to the switchboard -->
+        <a href="{% url 'switchboard' %}" ><h1>Project Wolverine</h1></a>
+        </div>
+        
+        <p>It is a period of fun times. Countless trivia questions for you and your friends. Once in the Trivia room, read the question at the top of the screen. You will have little time to choose the correct answer.</p>     
+        <p>If you answer your question correctly you will receive points. The amount of points you get depends on how quickly you answer. So answer quickly to maximize your points.</p>
+        <p>If you answer with time to spare, you will be directed to the waiting room where you can see your response compared to the other players. From there we will pause for intermission to choose the next trivia category. At anytime see how you fair against your peers on the global leaderboards. See you at the top…</p>
+
+    </div>
+
+</section>
+
+
+
+{% endblock %}
