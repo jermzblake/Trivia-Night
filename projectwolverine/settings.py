@@ -138,3 +138,7 @@ LOGIN_REDIRECT_URL = 'switchboard'
 
 # This variable is for when the user logs out
 LOGOUT_REDIRECT_URL = 'login'
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
