@@ -12,7 +12,6 @@ cffi==1.14.0
 channels==3.0.2
 channels-redis==3.2.0
 chardet==3.0.4
-conda-package-handling==1.7.0+0.g7c4a471.dirty
 constantly==15.1.0
 cryptography==2.9.2
 cycler==0.10.0
