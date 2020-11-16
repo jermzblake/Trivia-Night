@@ -13,5 +13,5 @@ answerEls.forEach(a => {a.addEventListener('click', checkAnswer)})
 function checkAnswer(e) {
   answer = e.target.textContent
   score = scoreEl.textContent.replace("%","")
-  window.location.href = `http://127.0.0.1:8000/waiting/${answer}/${score}`
+  window.location.href = `http://127.0.0.1:8000/record_score/${answer}/${score}`
 }

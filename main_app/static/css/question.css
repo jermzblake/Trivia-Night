@@ -106,3 +106,11 @@
 .progressjs-inner {
   z-index: -1;
 }
+
+.correct {
+  background-color: green;
+}
+
+.incorrect {
+  background-color: red;
+}

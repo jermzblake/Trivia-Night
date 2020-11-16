@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/waiting.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/question.css' %}" />
 <script>
   let time_left = {{ time_left }}
+  let result_id = {{ result_id }}
 </script>
 <div class="game-wrapper">
   <div class="top-bar-container">
@@ -19,24 +20,36 @@
     </div>
 
     <div class="round-info-container">
-      <div class="choosing-icon">
-        <img width="48px" src="{% static 'imgs/choosing.svg' %}" alt="" />
+      <div class="category-icon">
+        <img width="48px" src="/static/imgs/{{question.category}}.svg" alt="" />
       </div>
+      <div class="category">{{question.category}}</div>
     </div>
     <div class="ham-btn">{% include "hamburger.html" %}</div>
   </div>
-  <div class="waiting-container">
-    <span class="wait">Wait for next round</span><br />
-    <span class="score"
-      >You got <span class="score-color">{{score}}</span> points for the last
-      one</span
-    >
-    <!-- <ul>
-      {% for data in leaderboards.alltime %} {%for inv in data%}
-      <li>{{inv.score}}</li>
-      {% endfor %} {% endfor %}
-    </ul> -->
+  <div class="question-container">
+    <div class="question-title">
+      <span id="question-title-txt">{{ question.question }}</span>
+    </div>
   </div>
+  <!-- <section class="section"> -->
+  <div class="choice-wrapper">
+    <div class="container">
+      <!-- Answers row -->
+      <div class="answer {{answer_class}}">{{ answer }}</div>
+    </div>
+  </div>
+  <table>
+    {% for user in scoreboard %}
+    <tr>
+      <td>{{ user.user.username }}</td>
+      <td>{{ user.points }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<!-- </section> -->
 
   <script src="{% static 'js/waiting.js' %}"></script>
   {% endblock %}

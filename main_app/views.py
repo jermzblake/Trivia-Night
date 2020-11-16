@@ -80,10 +80,7 @@ def intermission(request):
   leaderboards = get_leaderboards()
   return render(request, 'game/intermission.html', {'time_left': time_left, 'category': category, 'leaderboards':leaderboards})
 
-# When a user selects an answer, they are directed to this flow which determines whether it was correct, 
-# adds the result to the db and renders a waiting room until the intermission state
-@login_required
-def waiting(request, answer, score):
+def record_score(request, answer, score):
   # Set variable representing current state
   state = State.objects.first()
   # If the chosen answer is incorrect, make points earned 0
@@ -93,16 +90,31 @@ def waiting(request, answer, score):
   new_result = Result(
     user = request.user,
     points = score,
+    answer = answer,
     question = state.question,
     time_stamp = datetime.now(timezone.utc)
   )
   new_result.save()
+  answer_class = 'incorrect' if score == 0 else 'correct'
+  return redirect(f"/waiting/{new_result.id}")
+
+# When a user selects an answer, they are directed to this flow which determines whether it was correct, 
+# adds the result to the db and renders a waiting room until the intermission state
+@login_required
+def waiting(request, result_id):
+  result = Result.objects.get(pk=result_id)
+  # Set variable representing current state
+  state = State.objects.first()
   # Set variable time_left equal to the remaining time in the question state
   time_left = ((state.time_stamp + timedelta(microseconds=(question_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
   # Get leaderboards object
   leaderboards = get_leaderboards()
   # Render waiting.html
-  return render(request, 'game/waiting.html', {'score':score, 'time_left':time_left, 'leaderboards':leaderboards})
+  answer_class = 'incorrect' if result.points == 0 else 'correct'
+  scoreboard = Result.objects.filter(question=state.question).order_by('points')
+  if state.current_state == 'intermission':
+    return redirect('switchboard')
+  return render(request, 'game/waiting.html', {'time_left':time_left, 'leaderboards':leaderboards, 'question': state.question, 'answer':result.answer, 'answer_class':answer_class, 'scoreboard':scoreboard, 'result_id':result.id})
 
 def get_question():
   
