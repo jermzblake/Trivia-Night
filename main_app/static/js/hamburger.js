@@ -1,6 +1,8 @@
 let hamburger = document.getElementById("ham");
 let sideMenu = document.getElementById("side-menu");
+
 let menuState = localStorage.getItem("state");
+let leaderboardState = localStorage.getItem("leaderboard");
 
 let selector = document.getElementById("selector");
 
@@ -37,6 +39,8 @@ function leaderboardChange(e) {
     week.style.display = "none";
     month.style.display = "none";
     alltime.style.display = "none";
+    localStorage.setItem("leaderboard", "hour");
+    localStorage.setItem("index", "0");
   }
   if (userChoice === "day") {
     hour.style.display = "none";
@@ -44,13 +48,26 @@ function leaderboardChange(e) {
     week.style.display = "none";
     month.style.display = "none";
     alltime.style.display = "none";
+    localStorage.setItem("leaderboard", "day");
+    localStorage.setItem("index", "1");
   }
-  if (userChoice === "month") {
+  if (userChoice === "week") {
     hour.style.display = "none";
     day.style.display = "none";
     week.style.display = "block";
     month.style.display = "none";
     alltime.style.display = "none";
+    localStorage.setItem("leaderboard", "week");
+    localStorage.setItem("index", "2");
+  }
+  if (userChoice === "month") {
+    hour.style.display = "none";
+    day.style.display = "none";
+    week.style.display = "none";
+    month.style.display = "block";
+    alltime.style.display = "none";
+    localStorage.setItem("leaderboard", "month");
+    localStorage.setItem("index", "3");
   }
   if (userChoice === "alltime") {
     hour.style.display = "none";
@@ -58,7 +75,64 @@ function leaderboardChange(e) {
     week.style.display = "none";
     month.style.display = "none";
     alltime.style.display = "block";
+    localStorage.setItem("leaderboard", "alltime");
+    localStorage.setItem("index", "4");
   }
 }
+
+currentBoard = localStorage.getItem("leaderboard");
+localStorage.setItem("leaderboard", currentBoard);
+
+function leaderboardStateChange() {
+  console.log(currentBoard);
+  currentSelect = localStorage.getItem("index");
+  if (currentBoard == "hour") {
+    hour.style.display = "block";
+    day.style.display = "none";
+    week.style.display = "none";
+    month.style.display = "none";
+    alltime.style.display = "none";
+    localStorage.setItem("leaderboard", "hour");
+    selector.selectedIndex = currentSelect;
+  }
+  if (currentBoard == "day") {
+    hour.style.display = "none";
+    day.style.display = "block";
+    week.style.display = "none";
+    month.style.display = "none";
+    alltime.style.display = "none";
+    localStorage.setItem("leaderboard", "day");
+    selector.selectedIndex = currentSelect;
+  }
+  if (currentBoard == "week") {
+    hour.style.display = "none";
+    day.style.display = "none";
+    week.style.display = "block";
+    month.style.display = "none";
+    alltime.style.display = "none";
+    localStorage.setItem("leaderboard", "week");
+    selector.selectedIndex = currentSelect;
+  }
+  if (currentBoard == "month") {
+    hour.style.display = "none";
+    day.style.display = "none";
+    week.style.display = "none";
+    month.style.display = "block";
+    alltime.style.display = "none";
+    localStorage.setItem("leaderboard", "month");
+    selector.selectedIndex = currentSelect;
+  }
+  if (currentBoard == "alltime") {
+    hour.style.display = "none";
+    day.style.display = "none";
+    week.style.display = "none";
+    month.style.display = "none";
+    alltime.style.display = "block";
+    localStorage.setItem("leaderboard", "alltime");
+    selector.selectedIndex = currentSelect;
+  }
+}
+
 // Setting the menu every reload
 menuSet();
+leaderboardStateChange();
