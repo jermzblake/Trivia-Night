@@ -1,6 +1,11 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/question.css' %}" />
 <script type="text/javascript" src="{% static 'js/progress.min.js' %}"></script>
+<script
+  defer
+  type="text/javascript"
+  src="{% static 'js/hamburger.js' %}"
+></script>
 <script>
   let time_left = {{ time_left }}
 </script>

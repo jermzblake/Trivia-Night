@@ -3,6 +3,16 @@
 .ham-btn {
   z-index: 5;
 }
+
+.hour {
+  display: block;
+}
+.day,
+.week,
+.month,
+.alltime {
+  display: none;
+}
 #side-menu {
   font-family: "VT323", monospace;
   max-width: 270px;
