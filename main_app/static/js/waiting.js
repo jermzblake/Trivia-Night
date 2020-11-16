@@ -5,4 +5,4 @@ setTimeout (function() {
 
 setInterval(function() {
   window.location.href = `/waiting/${result_id}`
-},1000)
+},2500)
