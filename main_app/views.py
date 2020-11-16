@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import State, Question, Result, Photo, Profile
 from datetime import datetime, timezone, timedelta
 from django.db.models import Sum
+from django.contrib.auth.models import User
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Import boto3 library and uuid for generating random strings
 import uuid
 import boto3
@@ -233,14 +235,14 @@ def get_leaderboards():
   return leaderboards
 
 @login_required
-def profile_detail(request, user_id, profile_id):
+def profile_detail(request, user_id,):
   user = User.objects.get(id=user_id)
-  profile = Profile.objects.get(id=profile_id)
+  # profile = Profile.objects.get(id=profile_id)
   # Get leaderboards object
   leaderboards = get_leaderboards()
   return render(request, 'main_app/detail.html', {
     'user':user,
-    'profile':profile,
+    # 'profile':profile,
     'leaderboards':leaderboards,
   })
 
@@ -263,3 +265,15 @@ def add_photo(request, profile_id):
         except:
             print('An error occurred uploading file to S3')
     return redirect('detail', profile_id=profile_id)
+
+class ProfileCreate(CreateView):
+  model = Profile
+  fields = ['quip']
+
+class ProfileUpdate(UpdateView):
+  model = Profile
+  fields = ['quip']
+
+class ProfileDelete(DeleteView):
+  model = Profile
+  success_url = 'accounts/login'
