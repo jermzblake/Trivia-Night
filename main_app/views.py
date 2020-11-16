@@ -209,9 +209,11 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+@login_required
 def play(request):
   return render(request, 'main_app/play.html')
 
+@login_required
 def info(request):
   return render(request, 'main_app/info.html')
 
