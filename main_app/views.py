@@ -148,7 +148,9 @@ def get_question():
       # animals
       'https://opentdb.com/api.php?amount=1&category=27',
       # history
-      'https://opentdb.com/api.php?amount=1&category=23'
+      'https://opentdb.com/api.php?amount=1&category=23',
+      # video games
+      'https://opentdb.com/api.php?amount=1&category=15'
   ]
 
   category_choice = random.choice(category_list)
