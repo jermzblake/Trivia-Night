@@ -233,10 +233,15 @@ def get_leaderboards():
   return leaderboards
 
 @login_required
-def profile_detail(request, profile_id):
+def profile_detail(request, user_id, profile_id):
+  user = User.objects.get(id=user_id)
   profile = Profile.objects.get(id=profile_id)
+  # Get leaderboards object
+  leaderboards = get_leaderboards()
   return render(request, 'main_app/detail.html', {
+    'user':user,
     'profile':profile,
+    'leaderboards':leaderboards,
   })
 
 
