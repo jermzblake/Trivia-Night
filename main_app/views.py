@@ -106,8 +106,28 @@ def waiting(request, answer, score):
 
 def get_question():
   
-  # The call to the api and the response being converted into json
-  response = requests.get('https://opentdb.com/api.php?amount=1')
+  # categorys from https://opentdb.com/
+  category_list = [
+   # sports
+      'https://opentdb.com/api.php?amount=1&category=21',
+      # general knowledge
+      'https://opentdb.com/api.php?amount=1&category=9',
+      # movies
+      'https://opentdb.com/api.php?amount=1&category=11',
+      # music
+      'https://opentdb.com/api.php?amount=1&category=12',
+      # geography
+      'https://opentdb.com/api.php?amount=1&category=22',
+      # science: gadgets
+      'https://opentdb.com/api.php?amount=1&category=30',
+      # science: technology
+      'https://opentdb.com/api.php?amount=1&category=18',
+      # vehicles
+      'https://opentdb.com/api.php?amount=1&category=28',
+  ]
+
+  category_choice = random.choice(category_list)
+  response = requests.get(category_choice)
   data = response.json()
 
   # Raw data that is retrieved from api     
