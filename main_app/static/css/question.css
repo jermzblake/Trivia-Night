@@ -86,7 +86,9 @@
   text-align: center;
   margin-right: auto;
 }
-
+.category-icon {
+  width: 64px;
+}
 .category {
   font-size: 0.8rem;
 }

@@ -124,6 +124,10 @@ def get_question():
       'https://opentdb.com/api.php?amount=1&category=18',
       # vehicles
       'https://opentdb.com/api.php?amount=1&category=28',
+      # animals
+      'https://opentdb.com/api.php?amount=1&category=27',
+      # history
+      'https://opentdb.com/api.php?amount=1&category=23'
   ]
 
   category_choice = random.choice(category_list)

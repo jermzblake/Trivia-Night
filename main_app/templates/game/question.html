@@ -20,10 +20,13 @@
     </div>
 
     <div class="round-info-container">
-      <div class="category">Category: {{question.category}}</div>
+      <div class="category-icon">
+        <img width="48px" src="/static/imgs/{{question.category}}.svg" alt="" />
+      </div>
+      <div class="category">{{question.category}}</div>
     </div>
     <div class="ham-btn">
-      <img id="ham" width="32px" src="{% static 'imgs/ham.png' %}" alt="" />
+      <img id="ham" width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
       <div id="side-menu" class="">
         <label for="leaderboard">Choose a leaderboard:</label>
         <select name="leaderboards">
@@ -52,7 +55,10 @@
 <!-- </section> -->
 
 <script>
-  progressJs(".question-container").start().set(100).autoIncrease(-1, time_left / 100);
+  progressJs(".question-container")
+    .start()
+    .set(100)
+    .autoIncrease(-1, time_left / 100);
 </script>
 
 <script src="{% static 'js/question.js' %}"></script>
