@@ -3,6 +3,7 @@
 <script type="text/javascript" src="{% static 'js/progress.min.js' %}"></script>
 <script>
   let time_left = {{ time_left }}
+  let remove_order = {{ remove_order|safe }}
 </script>
 <div class="game-wrapper">
   <div class="top-bar-container">
@@ -37,7 +38,7 @@
     <div class="container">
       <!-- Answers rows -->
       {% for answer in question.choices %}
-        <div class="answer">{{ answer }}</div>
+        <div class="answer" id='{{ answer }}'>{{ answer }}</div>
       {% endfor %}
     </div>
   </div>
