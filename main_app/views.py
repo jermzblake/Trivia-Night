@@ -89,6 +89,7 @@ def waiting(request, answer, score):
   # If the chosen answer is incorrect, make points earned 0
   if answer.strip() != state.question.correct_choice:
     score = 0
+  answer_string = answer.strip() 
   # Create new instance of Result model
   new_result = Result(
     user = request.user,
@@ -102,13 +103,13 @@ def waiting(request, answer, score):
   # Get leaderboards object
   leaderboards = get_leaderboards()
   # Render waiting.html
-  return render(request, 'game/waiting.html', {'score':score, 'time_left':time_left, 'leaderboards':leaderboards})
+  return render(request, 'game/waiting.html', {'score':score, 'time_left':time_left, 'leaderboards':leaderboards,'answer_string':answer_string})
 
 def get_question():
   
-  # categorys from https://opentdb.com/
+      # categorys from https://opentdb.com/
   category_list = [
-   # sports
+      # sports
       'https://opentdb.com/api.php?amount=1&category=21',
       # general knowledge
       'https://opentdb.com/api.php?amount=1&category=9',

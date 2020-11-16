@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}{% block content %} {% load static %}
+<img id="ham" width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
+<div id="side-menu" class="">
+  <div class="leaderboard-title">High Scores</div>
+  <select name="leaderboards">
+    {% for data in leaderboards %}
+    <option value="{{data}}">{{data}}</option>
+    {% endfor %}
+  </select>
+  <table>
+    <tr>          
+      <th>Username:</th>
+      <th>Score:</th>
+    </tr>       
+    {% for player in leaderboards.alltime %}
+      <td>{{player.user__username}}</td>
+      <td>{{player.points__sum}}</td>
+    </tr>      
+    {% endfor %}
+ 
+  </table>
+</div>
+{% endblock %}

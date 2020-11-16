@@ -11,3 +11,7 @@
   color: var(--green);
   font-size: 2rem;
 }
+
+.choosing-icon {
+  margin-left: 50px;
+}

@@ -24,18 +24,9 @@
       </div>
     </div>
 
-    <div class="choosing-category-text">Choosing A Category...</div>
-    <div class="ham-btn">
-      <img id="ham" width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
-      <div id="side-menu" class="">
-        <label for="leaderboard">Choose a leaderboard:</label>
-        <select name="leaderboards">
-          {% for data in leaderboards %}
-          <option value="{{data}}">{{data}}</option>
-          {% endfor %}
-        </select>
-      </div>
-    </div>
+    <div class="choosing-category-text">Choosing A Question...</div>
+
+    <div class="ham-btn">{% include "hamburger.html" %}</div>
   </div>
   <div class="question-container">
     <div class="base-timer">
