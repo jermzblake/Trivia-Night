@@ -108,9 +108,9 @@
 }
 
 .correct {
-  background-color: green;
+  background-color: var(--green);
 }
 
 .incorrect {
-  background-color: red;
+  background-color: var(--red);
 }
