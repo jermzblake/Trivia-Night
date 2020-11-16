@@ -1,6 +1,6 @@
 // page timer
 setTimeout (function() {
-  window.location.href = 'http://127.0.0.1:8000/switchboard'
+  window.location.href = '/switchboard'
 }, time_left)
 
 // state variables
