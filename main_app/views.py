@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 # TO DEFINE LENGTH OF TIME FOR QUESTION AND INTERMISSION PERIOD
-question_time = 10000
+question_time = 20000
 intermission_time = 10000
 
 # imports for the api
@@ -74,7 +74,11 @@ def question(request):
   # Get leaderboards object
   leaderboards = get_leaderboards()
   # Render question.html
-  return render(request, 'game/question.html', {'time_left': time_left, 'question': question, 'leaderboards':leaderboards})
+  remove_order = list(question.choices)
+  remove_order.remove(question.correct_choice)
+  random.shuffle(remove_order)
+  json_remove_order = json.dumps(remove_order)
+  return render(request, 'game/question.html', {'time_left': time_left, 'question': question, 'leaderboards':leaderboards, 'remove_order':json_remove_order})
 
 @login_required
 def intermission(request):
