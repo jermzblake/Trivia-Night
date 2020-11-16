@@ -232,6 +232,14 @@ def get_leaderboards():
 
   return leaderboards
 
+@login_required
+def profile_detail(request, profile_id):
+  profile = Profile.objects.get(id=profile_id)
+  return render(request, 'main_app/detail.html', {
+    'profile':profile,
+  })
+
+
 def add_photo(request, profile_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
