@@ -11,5 +11,5 @@ urlpatterns = [
   path('accounts/signup/', views.signup, name='signup'),
   path('play', views.play, name='play'),
   path('info', views.info, name='info'),
-  path('users/<int:user_id>/add_photo', views.add_photo, name="add_photo"),
+  path('users/<int:profile_id>/add_photo', views.add_photo, name="add_photo"),
 ]
