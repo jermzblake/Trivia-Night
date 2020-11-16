@@ -1,17 +1,108 @@
-.waiting-container {
-  padding: 10px;
-  font-size: 1.2rem;
-  background-color: var(--box-color);
-  border-radius: var(--border-radius);
-}
-.ham-btn {
-  margin-left: auto;
-}
-.score-color {
-  color: var(--green);
-  font-size: 2rem;
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-.choosing-icon {
-  margin-left: 50px;
+.top-bar-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: black;
+  width: 275px;
+  height: 80px;
+  margin: 10px;
+  background-color: #eee;
+  border-radius: 9px;
+  max-width: 320px;
+}
+
+.question-container {
+  padding: 10px;
+  text-align: center;
+  color: black;
+  width: 300px;
+  height: 125px;
+  background-color: #eee;
+  border-radius: 8px;
+  width: 300px;
+  position: relative;
+}
+
+.question {
+  border: 0px solid red;
+  border-radius: 15px;
+  font-size: 1rem;
+  padding: 0em;
+  height: 125px;
+  margin-top: 20px;
+  z-index: 2;
+}
+
+#question-title-txt {
+  font-size: 1.1rem;
+  position: absolute;
+  background-color: transparent;
+  top: 10%;
+  left: 10px;
+  padding: 2px;
+  z-index: 1;
+}
+
+.answer {
+  text-align: center;
+  color: black;
+  width: 300px;
+  height: 45px;
+  background-color: #eee;
+  border-radius: 8px;
+  margin: 1rem;
+  align-content: center;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.answer:hover {
+  transform: scale(1.1);
+  color: var(--blue);
+  transition: ease-out 100ms;
+  background-color: var(--hover-bg);
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
+
+.avatar {
+  padding: 10px;
+}
+.round-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: auto;
+}
+.category-icon {
+  width: 64px;
+}
+.category {
+  font-size: 0.8rem;
+}
+
+.progressjs-theme-blue .progressjs-inner {
+  height: 125px;
+  transition: all 0.3s ease-out;
+  background-color: var(--red);
+  border-radius: 8px;
+}
+
+.progressjs-percent {
+  color: transparent;
+}
+.progressjs-inner {
+  z-index: -1;
 }

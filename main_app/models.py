@@ -25,6 +25,7 @@ class Result(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   points = models.IntegerField()
   question = models.ForeignKey('Question', on_delete=models.CASCADE)
+  answer = models.CharField(max_length=100)
   time_stamp = models.DateTimeField()
 
 class Profile(models.Model):
