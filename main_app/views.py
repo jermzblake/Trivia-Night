@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import State, Question, Result, Photo
+from .models import State, Question, Result, Photo, Profile
 from datetime import datetime, timezone, timedelta
 from django.db.models import Sum
 # Import boto3 library and uuid for generating random strings
