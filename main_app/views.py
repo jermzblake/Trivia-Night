@@ -120,7 +120,7 @@ def waiting(request, result_id):
   leaderboards = get_leaderboards()
   # Render waiting.html
   answer_class = 'incorrect' if result.points == 0 else 'correct'
-  scoreboard = Result.objects.filter(question=state.question).order_by('points')
+  scoreboard = Result.objects.filter(question=state.question).order_by('-points')
   if state.current_state == 'intermission':
     return redirect('switchboard')
   return render(request, 'game/waiting.html', {'time_left':time_left, 'leaderboards':leaderboards, 'question': state.question, 'answer':result.answer, 'answer_class':answer_class, 'scoreboard':scoreboard, 'result_id':result.id})
@@ -209,9 +209,11 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+@login_required
 def play(request):
   return render(request, 'main_app/play.html')
 
+@login_required
 def info(request):
   return render(request, 'main_app/info.html')
 
