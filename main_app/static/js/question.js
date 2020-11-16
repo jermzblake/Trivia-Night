@@ -15,3 +15,14 @@ function checkAnswer(e) {
   score = scoreEl.textContent.replace("%","")
   window.location.href = `http://127.0.0.1:8000/record_score/${answer}/${score}`
 }
+
+
+let num_incorrect = remove_order.length
+if (num_incorrect > 1) {
+  setInterval(function() {
+    let remove = remove_order.pop()
+    document.getElementById(remove).remove()
+  }, time_left/num_incorrect + 500)
+}
+
+
