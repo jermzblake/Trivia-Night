@@ -3,4 +3,10 @@
 
 <p>user: {{ user }}</p>
 
+{% if profile %}
+    <p>Username: {{ profile.user }}</p>
+{% else %}
+<a href="{% url 'profiles_create' %}">Create a Profile</a>
+{% endif %}
+
 {% endblock %}
