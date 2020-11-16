@@ -27,5 +27,13 @@ class Result(models.Model):
   question = models.ForeignKey('Question', on_delete=models.CASCADE)
   time_stamp = models.DateTimeField()
 
+class Profile(models.Model):
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
+  quip = models.CharField(max_length=100)
 
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"Photo for profile_id: {self.profile_id} @{self.url}"
