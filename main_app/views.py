@@ -13,7 +13,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 # TO DEFINE LENGTH OF TIME FOR QUESTION AND INTERMISSION PERIOD
-question_time = 10000
+question_time = 20000
 intermission_time = 10000
 
 # imports for the api
@@ -76,7 +76,11 @@ def question(request):
   # Get leaderboards object
   leaderboards = get_leaderboards()
   # Render question.html
-  return render(request, 'game/question.html', {'time_left': time_left, 'question': question, 'leaderboards':leaderboards})
+  remove_order = list(question.choices)
+  remove_order.remove(question.correct_choice)
+  random.shuffle(remove_order)
+  json_remove_order = json.dumps(remove_order)
+  return render(request, 'game/question.html', {'time_left': time_left, 'question': question, 'leaderboards':leaderboards, 'remove_order':json_remove_order})
 
 @login_required
 def intermission(request):
@@ -118,7 +122,7 @@ def waiting(request, result_id):
   leaderboards = get_leaderboards()
   # Render waiting.html
   answer_class = 'incorrect' if result.points == 0 else 'correct'
-  scoreboard = Result.objects.filter(question=state.question).order_by('points')
+  scoreboard = Result.objects.filter(question=state.question).order_by('-points')
   if state.current_state == 'intermission':
     return redirect('switchboard')
   return render(request, 'game/waiting.html', {'time_left':time_left, 'leaderboards':leaderboards, 'question': state.question, 'answer':result.answer, 'answer_class':answer_class, 'scoreboard':scoreboard, 'result_id':result.id})
@@ -146,7 +150,9 @@ def get_question():
       # animals
       'https://opentdb.com/api.php?amount=1&category=27',
       # history
-      'https://opentdb.com/api.php?amount=1&category=23'
+      'https://opentdb.com/api.php?amount=1&category=23',
+      # video games
+      'https://opentdb.com/api.php?amount=1&category=15'
   ]
 
   category_choice = random.choice(category_list)
@@ -205,9 +211,11 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+@login_required
 def play(request):
   return render(request, 'main_app/play.html')
 
+@login_required
 def info(request):
   return render(request, 'main_app/info.html')
 

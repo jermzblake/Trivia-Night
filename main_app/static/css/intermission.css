@@ -1,6 +1,7 @@
 .choosing-category-text {
   font-size: 1rem;
 }
+
 .category {
   background-color: var(--box-);
   border: 2px solid red;
@@ -70,18 +71,24 @@
 }
 
 .base-timer__path-remaining.green {
-  color:#2da76b;
+  color: var(--green);
 }
 
 .base-timer__path-remaining.orange {
-  color: #f66530;
+  color: var(--orange);
 }
 
 .base-timer__path-remaining.red {
-  color: #e74c3c;
+  color: var(--red);
 }
 
 .base-timer__svg {
   /* Flips the svg and makes the animation to move left-to-right */
   transform: scaleX(-1);
+}
+.middle-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 12px;
 }
