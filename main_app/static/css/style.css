@@ -1,5 +1,6 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800;900&family=Roboto:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
 
 /* Global reset and font family set */
 * {
@@ -14,16 +15,17 @@ throughout the
 project with: Ex. var(--nameOfVar) */
 :root {
   /* Colors */
-  --main-bg-color: #f5f4f5;
+  --main-bg-color: #272727;
   --box-color: #eee;
   --font-color: #424242;
   --second-font: #727272;
   --hover-bg: #d3d1d3;
-  --red: #e74c3c;
+  --btn-color: #0062ff;
+  --red: #fb3640;
   --yellow: #ffe400;
   --orange: #f66530;
   --green: #2da76b;
-  --blue: #256eff;
+  --blue: #20a4f3;
 
   /* Fonts */
   /* --font-poppins: "Poppins", sans-serif; */

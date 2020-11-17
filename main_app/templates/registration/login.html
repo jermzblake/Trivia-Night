@@ -1,24 +1,22 @@
 {% extends 'base.html' %} {% block content %}{% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
-<div class="sign-in-wrapper">
-  <div class="top-bar-container">
-    <div class="game-name">trivia game</div>
-
-    <div class="ham-btn">
-      <img width="32px" src="" alt="" />
-    </div>
-  </div>     
-
-  <a href="{% url 'signup' %}">Sign Up</a>
-
-  <h1 class="title">Log In</h1>
+<div class="sign-up-wrapper">
+  <div class="logo">
+    <span class="trivia-logo">Trivia </span
+    ><span class="night-logo">Night</span>
+  </div>
+<div class="input-wrap">
+  <h1 class="title">Sign In</h1>
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %} {{ form.as_p }}
-    <label for="myfile">Avatar:</label>
+    <div class="buttons">
     <input type="submit" class="btn" value="login" />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
+  <a class="btn" href="{% url 'signup' %}">Sign Up</a>
 </div>
+</div>
+
 <script>
   localStorage.setItem("state", "closed");
 </script>
