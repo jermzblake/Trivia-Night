@@ -6,10 +6,10 @@
   type="text/javascript"
   src="{% static 'js/hamburger.js' %}"
 ></script>
-<script>
+<!-- <script>
   let time_left = {{ time_left }}
   let remove_order = {{ remove_order|safe }}
-</script>
+</script> -->
 <div class="game-wrapper">
   <div class="top-bar-container">
     <div class="user-info">
@@ -43,7 +43,7 @@
     <div class="container">
       <!-- Answers rows -->
       {% for answer in question.choices %}
-        <div class="answer" id='{{ answer }}'>{{ answer }}</div>
+      <div class="answer" id="{{ answer }}">{{ answer }}</div>
       {% endfor %}
     </div>
   </div>
