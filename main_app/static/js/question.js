@@ -38,6 +38,7 @@ if (remove_order.length === 2) {
 }
 
 function checkAnswer(e) {
+  answerEls.forEach(a => a.removeEventListener('click', checkAnswer))
   answer = e.target.textContent
   score = scoreEl.textContent.replace("%","")
   window.location.href = `/record_score/${answer}/${score}`
