@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import State, Question, Result, Photo, Profile
+from .models import State, Question, Result, Profile
 from datetime import datetime, timezone, timedelta
 from django.db.models import Sum
+from django.contrib.auth.models import User
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Import boto3 library and uuid for generating random strings
 import uuid
 import boto3
@@ -74,11 +76,8 @@ def question(request):
   # Get leaderboards object
   leaderboards = get_leaderboards()
   # Render question.html
-  remove_order = list(question.choices)
-  remove_order.remove(question.correct_choice)
-  random.shuffle(remove_order)
-  json_remove_order = json.dumps(remove_order)
-  return render(request, 'game/question.html', {'time_left': time_left, 'question': question, 'leaderboards':leaderboards, 'remove_order':json_remove_order})
+  json_remove_order = json.dumps(question.remove_order)
+  return render(request, 'game/question.html', {'question_time':question_time,'time_left': time_left, 'question': question, 'leaderboards':leaderboards, 'remove_order':json_remove_order})
 
 @login_required
 def intermission(request):
@@ -176,6 +175,12 @@ def get_question():
   wrong_answer_pool = random.sample(wrong_answer_pool,len(wrong_answer_pool))
   # wrong_answer_pool is now a radomized list with the answer as well
 
+  # Create remove_order
+  remove_order = list(wrong_answer_pool)
+  remove_order.remove(answer_string)
+  random.shuffle(remove_order)
+  remove_order.pop()
+
   # Create new instance of Question model
   new_question = Question(
     question=question_string,
@@ -183,7 +188,8 @@ def get_question():
     time_stamp=datetime.now(timezone.utc),
     correct_choice=answer_string,
     category=category_string,
-    difficulty=difficulty_string
+    difficulty=difficulty_string,
+    remove_order=remove_order
   )
   new_question.save()
 
@@ -240,7 +246,21 @@ def get_leaderboards():
 
   return leaderboards
 
-def add_photo(request, profile_id):
+@login_required
+def profile_detail(request, user_id,):
+  user = User.objects.get(id=user_id)
+  profile = Profile.objects.get(user__id=user_id)
+  # profile = Profile.objects.get(id=profile_id)
+  # Get leaderboards object
+  leaderboards = get_leaderboards()
+  return render(request, 'main_app/detail.html', {
+    'user':user,
+    'profile':profile,
+    'leaderboards':leaderboards,
+  })
+
+
+def add_photo(request, user_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
@@ -252,9 +272,23 @@ def add_photo(request, profile_id):
             s3.upload_fileobj(photo_file, BUCKET, key)
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            # we can assign to cat_id or cat (if you have a cat object)
-            photo = Photo(url=url, profile_id=profile_id)
-            photo.save()
+            # we can assign to profile_id or profile (if you have a profile object)
+            profile = Profile.objects.get(user__id=user_id)
+            profile.url = url
+            profile.save()
         except:
             print('An error occurred uploading file to S3')
-    return redirect('detail', profile_id=profile_id)
+    return redirect('detail', user_id=user_id)
+
+class ProfileCreate(CreateView):
+  model = Profile
+  fields = '__all__'
+  success_url = '/play'
+
+class ProfileUpdate(UpdateView):
+  model = Profile
+  fields = ['quip']
+
+class ProfileDelete(DeleteView):
+  model = Profile
+  success_url = 'accounts/login'
