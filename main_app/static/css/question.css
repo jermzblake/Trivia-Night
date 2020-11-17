@@ -13,8 +13,8 @@
   width: 275px;
   height: 80px;
   margin: 10px;
-  background-color: #eee;
-  border-radius: 9px;
+  background-color: var(--box-color);
+  border-radius: var(--border-radius);
   max-width: 320px;
 }
 
@@ -25,14 +25,13 @@
   width: 300px;
   height: 125px;
   background-color: #eee;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   width: 300px;
   position: relative;
 }
 
 .question {
-  border: 0px solid red;
-  border-radius: 15px;
+  border-radius: var(--border-radius);
   font-size: 1rem;
   padding: 0em;
   height: 125px;
@@ -54,9 +53,9 @@
   text-align: center;
   color: black;
   width: 300px;
-  height: 45px;
-  background-color: #eee;
-  border-radius: 8px;
+  height: 55px;
+  background-color: var(--box-color);
+  border-radius: var(--border-radius);
   margin: 1rem;
   align-content: center;
   padding: 1em;
@@ -78,6 +77,7 @@
 .avatar {
   padding: 10px;
 }
+
 .round-info-container {
   display: flex;
   flex-direction: column;
@@ -86,6 +86,7 @@
   text-align: center;
   margin-right: auto;
 }
+
 .category-icon {
   width: 64px;
 }
@@ -97,7 +98,7 @@
   height: 125px;
   transition: all 0.3s ease-out;
   background-color: var(--red);
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 .progressjs-percent {

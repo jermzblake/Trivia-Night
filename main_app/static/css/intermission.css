@@ -1,6 +1,7 @@
 .choosing-category-text {
   font-size: 1rem;
 }
+
 .category {
   background-color: var(--box-);
   border: 2px solid red;
@@ -89,5 +90,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  line-height: 6px;
+  line-height: 12px;
 }
