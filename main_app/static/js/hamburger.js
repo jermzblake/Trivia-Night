@@ -21,7 +21,7 @@ function menuSet() {
 }
 
 // Toggling the two states of the menu in local storage and front end side
-function sideMenuShow() {
+function sideMenuShow(e) {
   if (sideMenu.className == "closed") {
     sideMenu.classList.toggle("closed");
     localStorage.setItem("state", "open");
@@ -84,7 +84,6 @@ currentBoard = localStorage.getItem("leaderboard");
 localStorage.setItem("leaderboard", currentBoard);
 
 function leaderboardStateChange() {
-  console.log(currentBoard);
   currentSelect = localStorage.getItem("index");
   if (currentBoard == "hour") {
     hour.style.display = "block";
@@ -132,7 +131,16 @@ function leaderboardStateChange() {
     selector.selectedIndex = currentSelect;
   }
 }
-
+window.addEventListener("click", function (e) {
+  if (
+    e.target.id == "body-wrap" &&
+    e.target != hamburger &&
+    e.target != selector
+  ) {
+    sideMenu.classList.add("closed");
+    localStorage.setItem("state", "closed");
+  }
+});
 // Setting the menu every reload
 menuSet();
 leaderboardStateChange();

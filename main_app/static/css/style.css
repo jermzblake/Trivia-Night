@@ -50,6 +50,8 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .top-bar-container {
