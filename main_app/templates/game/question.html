@@ -14,14 +14,16 @@
   <div class="top-bar-container">
     <div class="user-info">
       <div class="avatar">
+        <a href="{% url 'detail' user.id %}">
         <div class="avatar-wrap">
           <img
             id="avatar-pic"
             width="48px"
-            src="{% static 'imgs/avatar.png' %}"
+            src="{{ user.profile.url }}"
             alt=""
           />
         </div>
+        </a>
       </div>
     </div>
 

@@ -12,5 +12,9 @@ urlpatterns = [
   path('accounts/signup/', views.signup, name='signup'),
   path('', views.play, name='play'),
   path('info', views.info, name='info'),
-  path('users/<int:profile_id>/add_photo', views.add_photo, name="add_photo"),
+  path('detail/<int:user_id>', views.profile_detail, name='detail'),
+  path('profile/create', views.ProfileCreate.as_view(), name='profiles_create'),
+  path('profile/<int:pk>/update/', views.ProfileUpdate.as_view(), name='profiles_update'),
+  path('profile/<int:pk>/delete/', views.ProfileDelete.as_view(), name='profiles_delete'),
+  path('detail/<int:user_id>/add_photo', views.add_photo, name='add_photo'),
 ]
