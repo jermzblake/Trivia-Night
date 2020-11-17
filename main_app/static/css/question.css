@@ -108,10 +108,3 @@
   z-index: -1;
 }
 
-.correct {
-  background-color: var(--green);
-}
-
-.incorrect {
-  background-color: var(--red);
-}

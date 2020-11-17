@@ -331,50 +331,50 @@ def hourly(user):
   if rank == 1:
     return f"You are currently the player of the hour with {points['points__sum']} points!"
   elif rank == 2:
-    return f"You are the 2nd ranked player in the hour with {points['points__sum']} points!"
+    return f"You are the 2nd ranked player in the past hour with {points['points__sum']} points!"
   elif rank == 3:
-    return f"You are the 3rd ranked player in the hour with {points['points__sum']} points!"
+    return f"You are the 3rd ranked player in the past hour with {points['points__sum']} points!"
   else:
-    return f"You are the {rank}th ranked player in the hour with {points['points__sum']} points."
+    return f"You are the {rank}th ranked player in the past hour with {points['points__sum']} points."
 
 def daily(user):
   now = datetime.now(timezone.utc)
   points = Result.objects.filter(user=user).filter(time_stamp__gte= now - timedelta(days=1)).aggregate(Sum('points'))
   rank = Result.objects.filter(time_stamp__gte= now - timedelta(days=1)).values('user__username').annotate(points=Sum('points')).filter(points__gt=points['points__sum']).count() + 1
   if rank == 1:
-    return f"You are currently the player of the day with {points['points__sum']} points!"
+    return f"You are currently the player of the past day with {points['points__sum']} points!"
   elif rank == 2:
-    return f"You are the 2nd ranked player in the day with {points['points__sum']} points!"
+    return f"You are the 2nd ranked player in the past day with {points['points__sum']} points!"
   elif rank == 3:
-    return f"You are the 3rd ranked player in the day with {points['points__sum']} points!"
+    return f"You are the 3rd ranked player in the past day with {points['points__sum']} points!"
   else:
-    return f"You are the {rank}th ranked player in the day with {points['points__sum']} points."
+    return f"You are the {rank}th ranked player in the past day with {points['points__sum']} points."
 
 def weekly(user):
   now = datetime.now(timezone.utc)
   points = Result.objects.filter(user=user).filter(time_stamp__gte= now - timedelta(weeks=1)).aggregate(Sum('points'))
   rank = Result.objects.filter(time_stamp__gte= now - timedelta(weeks=1)).values('user__username').annotate(points=Sum('points')).filter(points__gt=points['points__sum']).count() + 1
   if rank == 1:
-    return f"You are currently the player of the week with {points['points__sum']} points!"
+    return f"You are currently the player of the past week with {points['points__sum']} points!"
   elif rank == 2:
-    return f"You are the 2nd ranked player in the week with {points['points__sum']} points!"
+    return f"You are the 2nd ranked player in the past week with {points['points__sum']} points!"
   elif rank == 3:
-    return f"You are the 3rd ranked player in the week with {points['points__sum']} points!"
+    return f"You are the 3rd ranked player in the past week with {points['points__sum']} points!"
   else:
-    return f"You are the {rank}th ranked player in the week with {points['points__sum']} points."
+    return f"You are the {rank}th ranked player in the past week with {points['points__sum']} points."
 
 def monthly(user):
   now = datetime.now(timezone.utc)
   points = Result.objects.filter(user=user).filter(time_stamp__gte= now - timedelta(days=30)).aggregate(Sum('points'))
   rank = Result.objects.filter(time_stamp__gte= now - timedelta(days=30)).values('user__username').annotate(points=Sum('points')).filter(points__gt=points['points__sum']).count() + 1
   if rank == 1:
-    return f"You are currently the player of the month with {points['points__sum']} points!"
+    return f"You are currently the player of the past month with {points['points__sum']} points!"
   elif rank == 2:
-    return f"You are the 2nd ranked player in the month with {points['points__sum']} points!"
+    return f"You are the 2nd ranked player in the past month with {points['points__sum']} points!"
   elif rank == 3:
-    return f"You are the 3rd ranked player in the month with {points['points__sum']} points!"
+    return f"You are the 3rd ranked player in the past month with {points['points__sum']} points!"
   else:
-    return f"You are the {rank}th ranked player in the month with {points['points__sum']} points."
+    return f"You are the {rank}th ranked player in the past month with {points['points__sum']} points."
 
 def alltime(user):
   now = datetime.now(timezone.utc)
