@@ -167,6 +167,7 @@ def get_question():
   difficulty = data['results'][0]['difficulty']
 
   #Data that is 'unescaped' to deal with unicode issues.
+  wrong_answer_pool = json.dumps(incorrect_answers)
   question_string = html.unescape(question)
   answer_string = html.unescape(correct_answer)
   wrong_answer_pool = html.unescape(incorrect_answers)
