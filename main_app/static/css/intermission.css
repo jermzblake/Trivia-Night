@@ -87,6 +87,7 @@
   transform: scaleX(-1);
 }
 .middle-content {
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;

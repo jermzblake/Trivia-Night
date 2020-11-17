@@ -44,6 +44,9 @@ input[type="password"] {
   text-transform: uppercase;
   border-radius: 8px;
 }
+.btn:hover {
+  box-shadow: 0 0 5px #2196f3, 0 0 10px #2196f3, 0 0 20px #2196f3;
+}
 
 .play {
   margin-top: 100px;
@@ -52,6 +55,7 @@ input[type="password"] {
 .avatar {
   margin-top: 2em;
 }
+
 .logo {
   display: flex;
   flex-direction: column;
@@ -64,12 +68,12 @@ input[type="password"] {
 .trivia-logo {
   font-family: "Sigmar One", cursive;
   color: #0062ff;
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0062ff, 0 0 40px #0062ff,
-    0 0 50px #0062ff, 0 0 60px #0062ff, 0 0 70px #0062ff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0062ff, 0 0 30px #0062ff,
+    0 0 40px#0062ff, 0 0 55px #0062ff, 0 0 75px#0062ff;
 }
 
 .night-logo {
   color: #ff0099;
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff0099, 0 0 40px #ff0099,
-    0 0 50px #ff0099, 0 0 60px #ff0099, 0 0 70px #ff0099;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0099, 0 0 30px #ff0099,
+    0 0 40px#ff0099, 0 0 55px#ff0099, 0 0 75px#ff0099;
 }
