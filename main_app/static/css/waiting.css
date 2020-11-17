@@ -96,6 +96,7 @@
 
 .progressjs-inner {
   z-index: -1;
+}
 
 .score-tile {
   background-color: var(--box-color);
