@@ -38,6 +38,6 @@ class Profile(models.Model):
   def __str__(self):
     return f'{self.user.username} Profile'
 
-  # def get_absolute_url(self):
-  #   return reverse('detail', kwargs={'user_id': self.id})
+  def get_absolute_url(self):
+    return reverse('detail', kwargs={'user_id': self.user.id})
 

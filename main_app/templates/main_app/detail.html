@@ -7,11 +7,11 @@
     <p>Username: {{ user.username }}</p>
     <p>Quip: {{user.profile.quip }}</p>
     <img src="{{ user.profile.url }}">
-    <a href="{% url 'profiles_create' %}">create profile</a>
+    <a href="{% url 'profiles_update' profile.id %}">update quip</a>
 
 
 <!-- form to add a photo to user profile -->
-<form action="{% url 'add_photo' user.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+<form action="{% url 'add_photo' user.id %}" enctype="multipart/form-data" method="POST" class="">
     {% csrf_token %}
     <input type="file" name="photo-file">
     <br><br>
