@@ -1,21 +1,14 @@
 {% extends 'base.html' %} {% block content %}{% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/play.css' %}" />
 <div class="play-wrapper">
-    <div class="top-bar-container">
-        <div class="game-name">trivia game</div>
-    </div>   
-    
-        <!-- Avatar image here -->
-    <div class="avatar">
-            <img width="50px" src="{% static 'imgs/avatar.png' %}" alt="avatar image" />
-    </div>
-
-    <a href="{% url 'info' %}" class="btn play">More Info</a>
+  <div class="logo">
+    <span class="trivia-logo">Trivia </span
+    ><span class="night-logo">Night</span>
+  </div>
+  <div class="play-content">
     <a href="{% url 'switchboard' %}" class="btn play">Play</a>
-
+    <a href="{% url 'info' %}" class="btn info">More Info</a>
+  </div>
 </div>
 
-
-
-
-  {% endblock %}
+{% endblock %}

@@ -1,55 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #272727;
+}
 .play-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
 }
 .game-name {
-    font-size: 2rem;
-    text-transform: uppercase;
-    margin: 0 auto;
+  font-family: "Lato", cursive;
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin: 0 auto;
+  letter-spacing: 3px;
 }
-.top-bar-container {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    color: black;
-    width: 275px;
-    max-height: 300px;
-    margin: 10px;
-    background-color: #eee;
-    border-radius: 9px;
-    text-align: center;
-}
+
 label {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 input[type="text"],
 input[type="password"] {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
 }
 
 .btn {
-    margin: 10px;
-    background-color: #14a76c;
-    border: none;
-    color: white;
-    padding: 12px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    text-transform: uppercase;
-    border-radius: 8px;
+  margin: 10px;
+  background-color: #0062ff;
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 8px;
 }
-  
+
 .play {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 .avatar {
-    margin-top: 2em;
+  margin-top: 2em;
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-family: "Sigmar One", cursive;
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin: 40px;
+}
+
+.trivia-logo {
+  font-family: "Sigmar One", cursive;
+  color: #0062ff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0062ff, 0 0 40px #0062ff,
+    0 0 50px #0062ff, 0 0 60px #0062ff, 0 0 70px #0062ff;
+}
+
+.night-logo {
+  color: #ff0099;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff0099, 0 0 40px #ff0099,
+    0 0 50px #ff0099, 0 0 60px #ff0099, 0 0 70px #ff0099;
 }
