@@ -32,6 +32,7 @@ class Result(models.Model):
 class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
   quip = models.CharField(max_length=100, default='play to win')
+  url = models.CharField(max_length=200, default='')
   # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
   def __str__(self):

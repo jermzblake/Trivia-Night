@@ -6,6 +6,7 @@
 
     <p>Username: {{ user.username }}</p>
     <p>Quip: {{user.profile.quip }}</p>
+    <img src="{{ user.profile.url }}">
     <a href="{% url 'profiles_create' %}">create profile</a>
 
 
