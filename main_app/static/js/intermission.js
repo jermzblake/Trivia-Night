@@ -1,7 +1,7 @@
-// // page timer
-// setTimeout (function() {
-//   window.location.href = '/switchboard'
-// }, time_left)
+// page timer
+setTimeout (function() {
+  window.location.href = '/switchboard'
+}, time_left)
 
 // state variables
 let timerInterval = null;
