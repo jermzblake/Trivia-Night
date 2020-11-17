@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class State(models.Model):
   current_state = models.CharField(max_length=15)
@@ -30,7 +31,14 @@ class Result(models.Model):
 
 class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
-  quip = models.CharField(max_length=100)
+  quip = models.CharField(max_length=100, default='play to win')
+  # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+
+  def __str__(self):
+    return f'{self.user.username} Profile'
+
+  # def get_absolute_url(self):
+  #   return reverse('detail', kwargs={'user_id': self.id})
 
 class Photo(models.Model):
     url = models.CharField(max_length=200)

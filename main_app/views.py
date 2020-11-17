@@ -259,7 +259,7 @@ def add_photo(request, profile_id):
             s3.upload_fileobj(photo_file, BUCKET, key)
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            # we can assign to cat_id or cat (if you have a cat object)
+            # we can assign to profile_id or profile (if you have a profile object)
             photo = Photo(url=url, profile_id=profile_id)
             photo.save()
         except:
@@ -268,7 +268,8 @@ def add_photo(request, profile_id):
 
 class ProfileCreate(CreateView):
   model = Profile
-  fields = ['quip']
+  fields = '__all__'
+  success_url = '/play'
 
 class ProfileUpdate(UpdateView):
   model = Profile
