@@ -1,5 +1,6 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800;900&family=Roboto:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
 
 /* Global reset and font family set */
 * {
@@ -19,6 +20,7 @@ project with: Ex. var(--nameOfVar) */
   --font-color: #424242;
   --second-font: #727272;
   --hover-bg: #d3d1d3;
+  --btn-color: #0062ff;
   --red: #fb3640;
   --yellow: #ffe400;
   --orange: #f66530;

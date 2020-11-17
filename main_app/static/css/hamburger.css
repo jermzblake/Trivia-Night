@@ -69,6 +69,6 @@ select {
   font-size: 0.8rem;
 }
 .closed {
-  clip-path: circle(30px at 90% -10%);
-  -webkit-clip-path: circle(30px at 90% -10%);
+  clip-path: circle(20px at 90% -10%);
+  -webkit-clip-path: circle(20px at 90% -10%);
 }
