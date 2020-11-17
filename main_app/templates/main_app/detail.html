@@ -1,21 +1,29 @@
 {% extends 'base.html' %} {% block content %}{% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}" />
 
-<p>user: {{ user }}</p>
+<div class="play-wrapper">
+    <div class="logo">
+        <!-- <h4>User Profile</h4> -->
+        <h2 class="trivia-logo">{{ user.username }}</h2><br>
+        <a href="{% url 'profiles_update' profile.id %}"><p class="game-name">{{user.profile.quip }}</p></a>
+        <a href="{% url 'profiles_update' profile.id %}"><p>Click here to change Quip</p></a>
+    </div>
+    <img class="" width="200px" src="{{ user.profile.url }}" alt="avatar">
 
+    <!-- form to add a photo to user profile -->
+    <h4 class="night-logo">Change avatar</h4>
+    <form action="{% url 'add_photo' user.id %}" enctype="multipart/form-data" method="POST" class="">
+        {% csrf_token %}
+        <input type="file" name="photo-file" id="custom-file">
 
-    <p>Username: {{ user.username }}</p>
-    <p>Quip: {{user.profile.quip }}</p>
-    <img src="{{ user.profile.url }}">
-    <a href="{% url 'profiles_update' profile.id %}">update quip</a>
+        <br>
+        <input type="submit" class="btn-submit" value="Submit Change">
+    </form>
 
-
-<!-- form to add a photo to user profile -->
-<form action="{% url 'add_photo' user.id %}" enctype="multipart/form-data" method="POST" class="">
-    {% csrf_token %}
-    <input type="file" name="photo-file">
-    <br><br>
-    <input type="submit" class="btn" value="Upload Photo">
-</form>
+    <div class="play-content">
+        <a href="{% url 'switchboard' %}" class="btn play">Play</a>
+        <a href="{% url 'info' %}" class="btn info">More Info</a>
+    </div>
+</div>
 
 {% endblock %}
