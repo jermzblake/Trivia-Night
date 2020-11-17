@@ -74,11 +74,8 @@ def question(request):
   # Get leaderboards object
   leaderboards = get_leaderboards()
   # Render question.html
-  remove_order = list(question.choices)
-  remove_order.remove(question.correct_choice)
-  random.shuffle(remove_order)
-  json_remove_order = json.dumps(remove_order)
-  return render(request, 'game/question.html', {'time_left': time_left, 'question': question, 'leaderboards':leaderboards, 'remove_order':json_remove_order})
+  json_remove_order = json.dumps(question.remove_order)
+  return render(request, 'game/question.html', {'question_time':question_time,'time_left': time_left, 'question': question, 'leaderboards':leaderboards, 'remove_order':json_remove_order})
 
 @login_required
 def intermission(request):
@@ -176,6 +173,12 @@ def get_question():
   wrong_answer_pool = random.sample(wrong_answer_pool,len(wrong_answer_pool))
   # wrong_answer_pool is now a radomized list with the answer as well
 
+  # Create remove_order
+  remove_order = list(wrong_answer_pool)
+  remove_order.remove(answer_string)
+  random.shuffle(remove_order)
+  remove_order.pop()
+
   # Create new instance of Question model
   new_question = Question(
     question=question_string,
@@ -183,7 +186,8 @@ def get_question():
     time_stamp=datetime.now(timezone.utc),
     correct_choice=answer_string,
     category=category_string,
-    difficulty=difficulty_string
+    difficulty=difficulty_string,
+    remove_order=remove_order
   )
   new_question.save()
 

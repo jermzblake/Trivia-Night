@@ -13,6 +13,7 @@ class State(models.Model):
 class Question(models.Model):
   question = models.CharField(max_length=250)
   choices = ArrayField(ArrayField(models.CharField(max_length=100)))
+  remove_order = ArrayField(ArrayField(models.CharField(max_length=100)))
   correct_choice = models.CharField(max_length=100)
   category = models.CharField(max_length=100)
   difficulty = models.CharField(max_length=100)

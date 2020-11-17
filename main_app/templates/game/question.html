@@ -9,6 +9,7 @@
 <script>
   let time_left = {{ time_left }}
   let remove_order = {{ remove_order|safe }}
+  let question_time = {{ question_time }}
 </script>
 <div class="game-wrapper">
   <div class="top-bar-container">
@@ -51,10 +52,11 @@
 <!-- </section> -->
 
 <script>
+  console.log(time_left, question_time)
   progressJs(".question-container")
     .start()
-    .set(100)
-    .autoIncrease(-1, time_left / 100);
+    .set(time_left/question_time*100)
+    .autoIncrease(-1, time_left / (time_left/question_time*100) );
 </script>
 
 <script src="{% static 'js/question.js' %}"></script>
