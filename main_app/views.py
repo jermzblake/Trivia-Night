@@ -267,12 +267,6 @@ def add_photo(request, user_id):
             print('An error occurred uploading file to S3')
     return redirect('detail', user_id=user_id)
 
-def get_photo(request, user_id):
-  profile = Profile.objects.get(user__id=user_id)
-  photourl = profile.url
-  return photourl
-
-
 class ProfileCreate(CreateView):
   model = Profile
   fields = '__all__'
