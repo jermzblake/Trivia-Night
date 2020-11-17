@@ -132,7 +132,12 @@ function leaderboardStateChange() {
     selector.selectedIndex = currentSelect;
   }
 }
-
+window.addEventListener("click", function (e) {
+  if (e.target != hamburger && e.target != selector && e.target != sideMenu) {
+    sideMenu.classList.add("closed");
+    localStorage.setItem("state", "closed");
+  }
+});
 // Setting the menu every reload
 menuSet();
 leaderboardStateChange();
