@@ -12,7 +12,7 @@
 <div class="game-wrapper">
   <div class="top-bar-container">
     <div class="user-info">
-      <div class="avatar">
+      <div class="avatar"><a href="{% url 'detail' user.id %}">
         <div class="avatar-wrap">
           <img
             id="avatar-pic"
@@ -20,7 +20,7 @@
             src="{% static 'imgs/avatar.png' %}"
             alt=""
           />
-        </div>
+        </div></a>
       </div>
     </div>
 
