@@ -24,6 +24,8 @@
   width: 50%;
   color: white;
   border-radius: var(--border-radius);
+  -webkit-box-shadow: 1px 11px 26px -4px #000000;
+  box-shadow: 1px 11px 26px -4px #000000;
 }
 .leaderboard-title {
   font-size: 1.2rem;
