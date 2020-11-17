@@ -102,6 +102,39 @@
 .progressjs-percent {
   color: transparent;
 }
+
 .progressjs-inner {
   z-index: -1;
 }
+
+.score-tile {
+  background-color: var(--box-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  width: 275px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.score-tile-name-avatar {
+  display:flex;
+  align-items: center;
+}
+
+.score-tile-name {
+  margin-left: 25px;
+}
+
+.score-tile-score {
+  margin-right: 25px;
+}
+
+.correct {
+  background-color: var(--green);
+}
+
+.incorrect {
+  background-color: var(--red);
+}
+
