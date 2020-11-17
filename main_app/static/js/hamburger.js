@@ -132,11 +132,8 @@ function leaderboardStateChange() {
   }
 }
 window.addEventListener("click", function (e) {
-  if (
-    e.target.id == "body-wrap" &&
-    e.target != hamburger &&
-    e.target != selector
-  ) {
+  console.log(e.target.id);
+  if (e.target != hamburger && e.target != selector && e.target != sideMenu) {
     sideMenu.classList.add("closed");
     localStorage.setItem("state", "closed");
   }

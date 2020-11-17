@@ -24,7 +24,6 @@
   width: 50%;
   color: white;
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
 }
 .leaderboard-title {
   font-size: 1.2rem;
@@ -56,7 +55,6 @@ th {
   color: #ffe221;
   margin: 20px;
   display: block;
-  font-family: "VT323", monospace;
 }
 
 table .col {
@@ -65,7 +63,7 @@ table .col {
 select {
   padding: 0;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .closed {
   clip-path: circle(30px at 90% -10%);
