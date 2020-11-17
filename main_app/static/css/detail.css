@@ -1,0 +1,98 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #272727;
+}
+.play-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.trivia-logo {
+    font-family: "Sigmar One", cursive;
+    color: #0062ff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0062ff, 0 0 30px #0062ff,
+      0 0 40px#0062ff, 0 0 55px #0062ff, 0 0 75px#0062ff;
+}
+  
+.night-logo {
+    color: #ff0099;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0099, 0 0 30px #ff0099,
+      0 0 40px#ff0099, 0 0 55px#ff0099, 0 0 75px#ff0099;
+}
+
+a {
+    text-decoration: none;
+    color: #ffe400;
+}
+
+.btn {
+    margin: 10px;
+    background-color: inherit;
+    border: none;
+    color: #ffe400;
+    padding: 12px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    margin-top: 1em;
+    box-shadow: 0 0 5px #ffe400, 0 0 10px #ffe400, 0 0 20px #ffe400;
+}
+
+.btn:hover {
+    box-shadow: 0 0 5px var(--green), 0 0 10px var(--green), 0 0 20px var(--green);
+}
+
+input[type="file"] {
+  /* background-color: inherit;
+  width:;
+  padding: 12px 20px;
+  color: #ff0099;
+  border-radius: var(--border-radius);
+  border: none;
+  border: 2px black solid; */
+  display: inline-block;
+}
+
+.custom-file-label {
+    font-size: 1rem;
+    color: #ff0099;
+    text-decoration: wavy;  
+}
+
+.custom-file-label:hover {
+    cursor: pointer;
+}
+
+.btn-submit {
+    margin: 10px;
+    background-color: inherit;
+    border: none;
+    color: #ff0099;
+    padding: 12px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    margin-top: 1em;
+}
+
+.btn-submit:hover {
+    box-shadow: 0 0 5px #ff0099, 0 0 10px #ff0099, 0 0 20px #ff0099;
+    cursor: pointer;
+}
+
+.game-name {
+    font-family: "Lato", cursive;
+    font-size: 1.5rem;
+}
