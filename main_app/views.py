@@ -4,6 +4,8 @@ from datetime import datetime, timezone, timedelta
 from django.db.models import Sum
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import JsonResponse
+
 # Import boto3 library and uuid for generating random strings
 import uuid
 import boto3
@@ -13,7 +15,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 # TO DEFINE LENGTH OF TIME FOR QUESTION AND INTERMISSION PERIOD
-question_time = 20000
+question_time = 50000
 intermission_time = 10000
 
 # imports for the api
@@ -292,3 +294,13 @@ class ProfileUpdate(UpdateView):
 class ProfileDelete(DeleteView):
   model = Profile
   success_url = 'accounts/login'
+
+def refresh_scoreboard(request):
+  state = State.objects.first()
+  scoreboard_query = Result.objects.filter(question=state.question).order_by('-points')
+  scoreboard = {}
+  for score in scoreboard_query:
+    user = score.user.username
+    points = score.points
+    scoreboard[score.user.username] = score.points
+  return JsonResponse(scoreboard)

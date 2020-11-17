@@ -46,14 +46,11 @@
       <div class="answer {{answer_class}}">{{ answer }}</div>
     </div>
   </div>
-  <table>
-    {% for user in scoreboard %}
-    <tr>
-      <td class="leaderboard-color">{{ user.user.username }}</td>
-      <td>{{ user.points }}</td>
-    </tr>
-    {% endfor %}
-  </table>
+
+  <div id="scoreboard">
+  <!-- javascript populating scoreboard -->     
+  </div>
+
 </div>
 
 <!-- </section> -->
