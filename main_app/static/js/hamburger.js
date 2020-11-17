@@ -132,6 +132,8 @@ function leaderboardStateChange() {
     selector.selectedIndex = currentSelect;
   }
 }
+
+// This will close the leaderboard when clicked outside
 window.addEventListener("click", function (e) {
   if (e.target != hamburger && e.target != selector && e.target != sideMenu) {
     sideMenu.classList.add("closed");
