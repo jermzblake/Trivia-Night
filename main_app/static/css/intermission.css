@@ -94,7 +94,14 @@
   line-height: 12px;
 }
 
+
 .message {
+  background-color: var(--box-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  width: 275px;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
-  color: white;
+  margin: 25px auto;
 }

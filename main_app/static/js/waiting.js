@@ -1,4 +1,4 @@
-Set a timer to direct user to the switchboard at next scheduled state change
+// Set a timer to direct user to the switchboard at next scheduled state change
 setTimeout (function() {
   window.location.href = '/switchboard'
 }, time_left)
