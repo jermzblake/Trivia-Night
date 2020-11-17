@@ -15,7 +15,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 # TO DEFINE LENGTH OF TIME FOR QUESTION AND INTERMISSION PERIOD
-question_time = 50000
+question_time = 20000
 intermission_time = 10000
 
 # imports for the api
@@ -88,7 +88,8 @@ def intermission(request):
   time_left = ((state.time_stamp + timedelta(microseconds=(intermission_time * 1000))) - datetime.now(timezone.utc)) / timedelta(microseconds=1) / 1000
   # Get leaderboards object
   leaderboards = get_leaderboards()
-  return render(request, 'game/intermission.html', {'time_left': time_left, 'category': category, 'leaderboards':leaderboards})
+  message = generate_message(request.user)
+  return render(request, 'game/intermission.html', {'message':message,'time_left': time_left, 'category': category, 'leaderboards':leaderboards})
 
 def record_score(request, answer, score):
   # Set variable representing current state
@@ -304,3 +305,118 @@ def refresh_scoreboard(request):
     points = score.points
     scoreboard[score.user.username] = score.points
   return JsonResponse(scoreboard)
+
+def generate_message(user):
+  message_type = [
+    rank,
+    tip,
+    fact,
+  ]
+  return random.choice(message_type)(user)
+
+def rank(user):
+  message_list = [
+    hourly,
+    daily,
+    weekly,
+    monthly,
+    alltime
+  ]
+  return random.choice(message_list)(user)
+
+def hourly(user):
+  now = datetime.now(timezone.utc)
+  points = Result.objects.filter(user=user).filter(time_stamp__gte= now - timedelta(hours=1)).aggregate(Sum('points'))
+  rank = Result.objects.filter(time_stamp__gte= now - timedelta(hours=1)).values('user__username').annotate(points=Sum('points')).filter(points__gt=points['points__sum']).count() + 1
+  if rank == 1:
+    return f"You are currently the player of the hour with {points['points__sum']} points!"
+  elif rank == 2:
+    return f"You are the 2nd ranked player in the hour with {points['points__sum']} points!"
+  elif rank == 3:
+    return f"You are the 3rd ranked player in the hour with {points['points__sum']} points!"
+  else:
+    return f"You are the {rank}th ranked player in the hour with {points['points__sum']} points."
+
+def daily(user):
+  now = datetime.now(timezone.utc)
+  points = Result.objects.filter(user=user).filter(time_stamp__gte= now - timedelta(days=1)).aggregate(Sum('points'))
+  rank = Result.objects.filter(time_stamp__gte= now - timedelta(days=1)).values('user__username').annotate(points=Sum('points')).filter(points__gt=points['points__sum']).count() + 1
+  if rank == 1:
+    return f"You are currently the player of the day with {points['points__sum']} points!"
+  elif rank == 2:
+    return f"You are the 2nd ranked player in the day with {points['points__sum']} points!"
+  elif rank == 3:
+    return f"You are the 3rd ranked player in the day with {points['points__sum']} points!"
+  else:
+    return f"You are the {rank}th ranked player in the day with {points['points__sum']} points."
+
+def weekly(user):
+  now = datetime.now(timezone.utc)
+  points = Result.objects.filter(user=user).filter(time_stamp__gte= now - timedelta(weeks=1)).aggregate(Sum('points'))
+  rank = Result.objects.filter(time_stamp__gte= now - timedelta(weeks=1)).values('user__username').annotate(points=Sum('points')).filter(points__gt=points['points__sum']).count() + 1
+  if rank == 1:
+    return f"You are currently the player of the week with {points['points__sum']} points!"
+  elif rank == 2:
+    return f"You are the 2nd ranked player in the week with {points['points__sum']} points!"
+  elif rank == 3:
+    return f"You are the 3rd ranked player in the week with {points['points__sum']} points!"
+  else:
+    return f"You are the {rank}th ranked player in the week with {points['points__sum']} points."
+
+def monthly(user):
+  now = datetime.now(timezone.utc)
+  points = Result.objects.filter(user=user).filter(time_stamp__gte= now - timedelta(days=30)).aggregate(Sum('points'))
+  rank = Result.objects.filter(time_stamp__gte= now - timedelta(days=30)).values('user__username').annotate(points=Sum('points')).filter(points__gt=points['points__sum']).count() + 1
+  if rank == 1:
+    return f"You are currently the player of the month with {points['points__sum']} points!"
+  elif rank == 2:
+    return f"You are the 2nd ranked player in the month with {points['points__sum']} points!"
+  elif rank == 3:
+    return f"You are the 3rd ranked player in the month with {points['points__sum']} points!"
+  else:
+    return f"You are the {rank}th ranked player in the month with {points['points__sum']} points."
+
+def alltime(user):
+  now = datetime.now(timezone.utc)
+  points = Result.objects.filter(user=user).aggregate(Sum('points'))
+  rank = Result.objects.values('user__username').annotate(points=Sum('points')).filter(points__gt=points['points__sum']).count() + 1
+  if rank == 1:
+    return f"You are currently the greatest of all time with {points['points__sum']} points!"
+  elif rank == 2:
+    return f"You are the 2nd ranked player of all time with {points['points__sum']} points!"
+  elif rank == 3:
+    return f"You are the 3rd ranked player of all time with {points['points__sum']} points!"
+  else:
+    return f"You are the {rank}th ranked player of all time with {points['points__sum']} points."
+
+def tip(user):
+  message_list = [
+    leaderboard,
+    remove_incorrect,
+    more_points
+  ]
+  return random.choice(message_list)()
+
+def leaderboard():
+  return "Tap the trophy in the top right to see the leaderboards."
+
+def remove_incorrect():
+  return "Take your time. We remove incorrect answers as time goes on."
+
+def more_points():
+  return "You get more points the faster you answer the question."
+
+def fact(user):
+  message_list = [
+    creators,
+    technology
+  ]
+  return random.choice(message_list)()
+
+def creators():
+  return "This game was built by Jermaine, Nick and Seb. They're great!"
+
+def technology():
+  return "This game was built with Django, Python, JavaScript, HTML, CSS and lots more!"
+
+
