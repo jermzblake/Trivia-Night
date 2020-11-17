@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import State, Question, Result, Photo, Profile
+from .models import State, Question, Result, Profile
 from datetime import datetime, timezone, timedelta
 from django.db.models import Sum
 from django.contrib.auth.models import User
