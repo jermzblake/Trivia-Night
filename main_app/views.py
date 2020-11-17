@@ -5,6 +5,7 @@ from django.db.models import Sum
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import JsonResponse
+
 # Import boto3 library and uuid for generating random strings
 import uuid
 import boto3
