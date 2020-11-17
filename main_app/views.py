@@ -247,7 +247,7 @@ def profile_detail(request, user_id,):
   })
 
 
-def add_photo(request, profile_id):
+def add_photo(request, user_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
@@ -260,11 +260,13 @@ def add_photo(request, profile_id):
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
             # we can assign to profile_id or profile (if you have a profile object)
+            profile = Profile.objects.get(user__id=user_id)
+            profile_id = profile.id
             photo = Photo(url=url, profile_id=profile_id)
             photo.save()
         except:
             print('An error occurred uploading file to S3')
-    return redirect('detail', profile_id=profile_id)
+    return redirect('detail', user_id=user_id)
 
 class ProfileCreate(CreateView):
   model = Profile
