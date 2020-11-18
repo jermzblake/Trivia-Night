@@ -1,7 +1,7 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800;900&family=Roboto:wght@300;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
-
+@import url("http://fonts.googleapis.com/css?family=Monoton&effect=neon");
 /* Global reset and font family set */
 * {
   font-family: var(--font-roboto);
@@ -13,6 +13,7 @@
 /* Variables you can use in any css file 
 throughout the 
 project with: Ex. var(--nameOfVar) */
+
 :root {
   /* Colors */
   --main-bg-color: #272727;
@@ -29,11 +30,12 @@ project with: Ex. var(--nameOfVar) */
 
   /* Fonts */
   /* --font-poppins: "Poppins", sans-serif; */
+  /*400,500,700,800,900 Weights*/
   --font-poppins: "Poppins", sans-serif;
-  /*400,500,700,800,900 Weights*/ /*Weights: 300,400,500,700,800,900 */
+
   /* --font-roboto: "Roboto", sans-serif; */
+  /*300,400 Weights*/
   --font-roboto: "Roboto", sans-serif;
-  /*300,400 Weights*/ /*Weights: 300,400 */
 
   /* Shadows and Effects */
   --border-radius: 8px;
