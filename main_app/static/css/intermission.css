@@ -94,7 +94,6 @@
   line-height: 12px;
 }
 
-
 .message {
   background-color: var(--box-color);
   border-radius: var(--border-radius);
@@ -104,4 +103,5 @@
   align-items: center;
   padding: 10px;
   margin: 25px auto;
+  text-align: center;
 }
