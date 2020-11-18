@@ -47,7 +47,6 @@ input[type="password"] {
 }
 
 .logo {
-  text-align: center;
   display: flex;
   flex-direction: column;
   font-family: "Sigmar One", cursive;
@@ -57,16 +56,20 @@ input[type="password"] {
 }
 
 .trivia-logo {
-  font-family: "Sigmar One", cursive;
+  font-family: "Monoton", cursive;
   color: #0062ff;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0062ff, 0 0 30px #0062ff,
-    0 0 40px#0062ff, 0 0 55px #0062ff, 0 0 75px#0062ff;
+  letter-spacing: 3px;
 }
 
+.font-effect-neon {
+  text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #2b78f3,
+    0 0 0.6em #0062ff, 0 0 0.8em#0062ff, 0 0 1em #0062ff, 0 0 1.2em#0062ff;
+  color: #fff;
+}
 .night-logo {
-  color: #ff0099;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0099, 0 0 30px #ff0099,
-    0 0 40px#ff0099, 0 0 55px#ff0099, 0 0 75px#ff0099;
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  letter-spacing: 3px;
 }
 
 .input-wrap {
