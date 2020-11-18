@@ -11,7 +11,7 @@
     <img class="" width="200px" src="{{ user.profile.url }}" alt="avatar">
 
     <!-- form to add a photo to user profile -->
-    <h4 class="night-logo">Change avatar</h4>
+    <h3 class="night-logo">Change avatar</h3>
     <form action="{% url 'add_photo' user.id %}" enctype="multipart/form-data" method="POST" class="">
         {% csrf_token %}
         <input type="file" name="photo-file" id="custom-file">
@@ -21,8 +21,9 @@
     </form>
 
     <div class="play-content">
-        <a href="{% url 'switchboard' %}" class="btn play">Play</a>
-        <a href="{% url 'info' %}" class="btn info">More Info</a>
+        <a href="{% url 'switchboard' %}" class="btn">Play</a>
+        <a href="{% url 'info' %}" class="btn">More Info</a>
+        <a href="{% url 'logout' %}" class="btn-logout">Log Out</a>
     </div>
 </div>
 
