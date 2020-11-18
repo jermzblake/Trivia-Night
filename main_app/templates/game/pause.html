@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/play.css' %}" />
+<div class="play-wrapper">
+  <div class="logo">
+    <span class="night-logo font-effect-neon">You</span>
+    <span class="night-logo font-effect-neon">Still</span>
+    <span class="night-logo font-effect-neon">Here?</span>
+  </div>
+  <div class="play-content">
+    <a href="{% url 'switchboard' %}" class="btn play">Play</a>
+    <a href="{% url 'info' %}" class="btn info">More Info</a>
+  </div>
+</div>
+
+{% endblock %}
