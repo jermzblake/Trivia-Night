@@ -51,6 +51,22 @@ a {
     box-shadow: 0 0 5px var(--green), 0 0 10px var(--green), 0 0 20px var(--green);
 }
 
+.btn-logout {
+    margin: 10px;
+    background-color: inherit;
+    border: none;
+    color: #ffe400;
+    padding: 12px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    margin-top: 1em;
+    box-shadow: 0 0 5px var(--red), 0 0 10px var(--red), 0 0 20px var(--red);
+}
+
 input[type="file"] {
   /* background-color: inherit;
   width:;
