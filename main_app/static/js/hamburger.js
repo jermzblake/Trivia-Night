@@ -1,6 +1,6 @@
 let hamburger = document.getElementById("ham");
 let sideMenu = document.getElementById("side-menu");
-
+let tableContent = document.querySelector("table-content");
 let menuState = localStorage.getItem("state");
 let leaderboardState = localStorage.getItem("leaderboard");
 
@@ -134,12 +134,22 @@ function leaderboardStateChange() {
     localStorage.setItem("leaderboard", "alltime");
   }
 }
-// window.addEventListener("click", function (e) {
-//   if (e.target != hamburger && e.target != sideMenu) {
-//     sideMenu.classList.add("closed");
-//     localStorage.setItem("state", "closed");
-//   }
-// });
+
+window.addEventListener("click", function (e) {
+  if (
+    e.target != hamburger &&
+    e.target != sideMenu &&
+    e.target.value != "hour" &&
+    e.target.value != "day" &&
+    e.target.value != "week" &&
+    e.target.value != "month" &&
+    e.target.value != "alltime" &&
+    e.target != tableContent
+  ) {
+    sideMenu.classList.add("closed");
+    localStorage.setItem("state", "closed");
+  }
+});
 
 // Setting the menu every reload
 menuSet();
