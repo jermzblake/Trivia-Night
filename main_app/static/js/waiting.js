@@ -23,7 +23,7 @@ async function refreshScoreboard() {
       let num = 1
       let htmlBlock = ''
       for (item of data) {
-        if (num === 1) {
+        if (num === 1 && item.points > 0) {
           htmlBlock = 
             '<div class="score-tile">' +
               '<div class="score-tile-score">' +
