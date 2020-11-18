@@ -417,7 +417,7 @@ def more_points():
   return "You get more points the faster you answer the question."
 
 def more_points():
-  return "You can change your avatar or your quip by trapping the avatar in the top left."
+  return "You can change your avatar or your quip by tapping the avatar in the top left."
 
 def fact(user):
   message_list = [
