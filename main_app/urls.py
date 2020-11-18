@@ -17,5 +17,6 @@ urlpatterns = [
   path('profile/<int:pk>/update/', views.ProfileUpdate.as_view(), name='profiles_update'),
   path('profile/<int:pk>/delete/', views.ProfileDelete.as_view(), name='profiles_delete'),
   path('detail/<int:user_id>/add_photo', views.add_photo, name='add_photo'),
-  path('refresh_scoreboard', views.refresh_scoreboard, name='refresh_scoreboard')
+  path('refresh_scoreboard', views.refresh_scoreboard, name='refresh_scoreboard'),
+  path('pause', views.pause, name='pause'),
 ]

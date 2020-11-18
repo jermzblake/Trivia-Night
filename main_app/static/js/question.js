@@ -1,6 +1,6 @@
 // Set a timer to direct user to the switchboard at next scheduled state change
 setTimeout (function() {
-  window.location.href = '/'
+  window.location.href = '/pause'
 }, time_left)
 
 // Cache elements from page

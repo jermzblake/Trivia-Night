@@ -15,7 +15,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 # TO DEFINE LENGTH OF TIME FOR QUESTION AND INTERMISSION PERIOD
-question_time = 20000
+question_time = 15000
 intermission_time = 10000
 
 # imports for the api
@@ -226,6 +226,10 @@ def play(request):
 @login_required
 def info(request):
   return render(request, 'main_app/info.html')
+
+@login_required
+def pause(request):
+  return render(request,'game/pause.html')
 
 def get_leaderboards():
   
