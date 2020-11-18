@@ -16,14 +16,14 @@
     <div class="user-info">
       <div class="avatar">
         <a href="{% url 'detail' user.id %}">
-        <div class="avatar-wrap">
-          <img
-            id="avatar-pic"
-            width="48px"
-            src="{{ user.profile.url }}"
-            alt=""
-          />
-        </div>
+          <div class="avatar-wrap">
+            <img
+              id="avatar-pic"
+              width="48px"
+              src="{{ user.profile.url }}"
+              alt=""
+            />
+          </div>
         </a>
       </div>
     </div>
@@ -54,11 +54,11 @@
 <!-- </section> -->
 
 <script>
-  console.log(time_left, question_time)
+  console.log(time_left, question_time);
   progressJs(".question-container")
     .start()
-    .set(time_left/question_time*100)
-    .autoIncrease(-1, time_left / (time_left/question_time*100) );
+    .set((time_left / question_time) * 100)
+    .autoIncrease(-1, time_left / ((time_left / question_time) * 100));
 </script>
 
 <script src="{% static 'js/question.js' %}"></script>

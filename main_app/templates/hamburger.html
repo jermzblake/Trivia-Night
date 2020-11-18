@@ -3,14 +3,12 @@
 <img id="ham" width="32px" src="{% static 'imgs/ham.svg' %}" alt="" />
 <div id="side-menu" class="">
   <div class="leaderboard-title">High Scores</div>
-
-  <select id='selector' name="leaderboards">
+  <div class="leaderboard-buttons">
     {% for data in leaderboards %}
-    <option id='option' value="{{data}}">{{data}}</option>
-    {% endfor %}
-  </select>
-
-  <div id='table' class="hour">  
+    <button id={{data}} value="{{data}}">{{data}}</button>
+    {% endfor %} 
+  </div>
+  <div id='table' class="hour_board">  
     <table>
     <tr>          
       <th>Username:</th>
@@ -24,7 +22,7 @@
   </table>
 </div>
 
-<div id='table' class="day">  
+<div id='table' class="day_board">  
   <table>
   <tr>          
     <th>Username:</th>
@@ -38,7 +36,7 @@
 </table>
 </div>
 
-  <div id='table' class="week">  
+  <div id='table' class="week_board">  
     <table>
     <tr>          
       <th>Username:</th>
@@ -52,7 +50,7 @@
   </table>
 </div>
 
-<div id='table' class="month">  
+<div id='table' class="month_board">  
   <table>
   <tr>          
     <th>Username:</th>
@@ -66,7 +64,7 @@
 </table>
 </div>
 
-<div id='table' class="alltime">  
+<div id='table' class="alltime_board">  
   <table>
   <tr>          
     <th>Username:</th>
