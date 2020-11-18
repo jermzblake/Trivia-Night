@@ -4,7 +4,10 @@ html {
   padding: 0;
   height: 100%;
   background-color: #272727;
+  display: grid;
+  place-items: center;
 }
+
 .play-wrapper {
   display: flex;
   flex-direction: column;
