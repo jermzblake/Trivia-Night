@@ -28,6 +28,8 @@
   border-radius: var(--border-radius);
   width: 300px;
   position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .question {
@@ -53,10 +55,11 @@
   text-align: center;
   color: black;
   width: 300px;
-  height: 55px;
+  height: 60px;
   background-color: var(--box-color);
   border-radius: var(--border-radius);
   margin: 1rem;
+  margin-top: 15px;
   align-content: center;
   padding: 1em;
   cursor: pointer;
@@ -107,4 +110,3 @@
 .progressjs-inner {
   z-index: -1;
 }
-
