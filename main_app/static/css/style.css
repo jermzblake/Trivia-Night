@@ -17,10 +17,10 @@ project with: Ex. var(--nameOfVar) */
 :root {
   /* Colors */
   --main-bg-color: #10002B;
-  --box-color: #eee;
+  --box-color: #e0aaff;
   --font-color: #424242;
   --second-font: #727272;
-  --hover-bg: #d3d1d3;
+  --hover-bg: #e0aaff;
   --btn-color: #0062ff;
   --red: #fb3640;
   --yellow: #ffe400;
