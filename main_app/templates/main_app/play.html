@@ -9,6 +9,9 @@
     <a href="{% url 'switchboard' %}" class="btn play">Play</a>
     <a href="{% url 'info' %}" class="btn info">More Info</a>
   </div>
+  <script>
+    localStorage.setItem("state", "closed");
+  </script>
 </div>
 
 {% endblock %}
