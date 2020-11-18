@@ -296,7 +296,7 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
 
 class ProfileDelete(LoginRequiredMixin, DeleteView):
   model = Profile
-  success_url = 'accounts/login'
+  success_url = '/accounts/login'
 
 def refresh_scoreboard(request):
   state = State.objects.first()
