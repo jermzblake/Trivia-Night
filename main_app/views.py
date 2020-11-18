@@ -13,6 +13,7 @@ import boto3
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # TO DEFINE LENGTH OF TIME FOR QUESTION AND INTERMISSION PERIOD
 question_time = 20000
@@ -284,16 +285,16 @@ def add_photo(request, user_id):
             print('An error occurred uploading file to S3')
     return redirect('detail', user_id=user_id)
 
-class ProfileCreate(CreateView):
+class ProfileCreate(LoginRequiredMixin, CreateView):
   model = Profile
   fields = '__all__'
   success_url = '/play'
 
-class ProfileUpdate(UpdateView):
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
   model = Profile
   fields = ['quip']
 
-class ProfileDelete(DeleteView):
+class ProfileDelete(LoginRequiredMixin, DeleteView):
   model = Profile
   success_url = 'accounts/login'
 
