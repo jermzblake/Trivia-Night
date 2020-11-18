@@ -102,23 +102,50 @@
   background-color: var(--box-color);
   border-radius: var(--border-radius);
   display: flex;
+  flex-direction: column;
   width: 275px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-}
-
-.score-tile-name-avatar {
-  display:flex;
-  align-items: center;
-}
-
-.score-tile-name {
-  margin-left: 25px;
+  padding: 10px 0;
 }
 
 .score-tile-score {
-  margin-right: 25px;
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+}
+
+.score-tile-score-avatar {
+  width: 30%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-tile-score-name {
+  width: 30%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-tile-score-score {
+  width: 30%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size:1.2em;
+}
+
+.score-tile-score-avatar img{
+  width:35px;
+}
+
+.score-tile-quip {
+  text-align:center;
+  font-size: .85em;
+  font-style: italic;
 }
 
 .correct {

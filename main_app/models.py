@@ -31,7 +31,7 @@ class Result(models.Model):
   time_stamp = models.DateTimeField()
 
 class Profile(models.Model):
-  user = models.OneToOneField(User, on_delete=models.CASCADE)
+  user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile_user")
   quip = models.CharField(max_length=100, default='play to win')
   url = models.CharField(max_length=200, default='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg')
   # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
