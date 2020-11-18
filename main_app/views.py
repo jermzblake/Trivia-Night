@@ -304,13 +304,13 @@ def refresh_scoreboard(request):
   for score in scoreboard_query:
     user = score.user.username
     points = score.points
-    url = score.user.profile_user.url
-    quip = score.user.profile_user.quip
+    url = score.user.profile.url
+    quip = score.user.profile.quip
     scoreboard_item = {
       'user': score.user.username,
       'points': score.points,
-      'url': score.user.profile_user.url,
-      'quip': score.user.profile_user.quip
+      'url': score.user.profile.url,
+      'quip': score.user.profile.quip
     }
     scoreboard.append(scoreboard_item)
   return JsonResponse(scoreboard, safe=False)
@@ -416,8 +416,13 @@ def remove_incorrect():
 def more_points():
   return "You get more points the faster you answer the question."
 
+<<<<<<< HEAD
 def more_points():
   return "You can change your avatar or your quip by tapping the avatar in the top left."
+=======
+def change_avatar():
+  return "You can change your avatar or your quip by trapping the avatar in the top left."
+>>>>>>> 79f13676d068012666d534f4d3453b4c93765d40
 
 def fact(user):
   message_list = [
