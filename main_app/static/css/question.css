@@ -67,7 +67,7 @@
 
 .answer:hover {
   transform: scale(1.1);
-  color: var(--blue);
+  color: #6930c3;
   transition: ease-out 100ms;
   background-color: var(--hover-bg);
 }
