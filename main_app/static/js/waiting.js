@@ -1,4 +1,4 @@
-// Set a timer to direct user to the switchboard at next scheduled state change
+// // Set a timer to direct user to the switchboard at next scheduled state change
 setTimeout (function() {
   window.location.href = '/switchboard'
 }, time_left)
@@ -20,16 +20,39 @@ async function refreshScoreboard() {
   })
   .then(data => {
       listEl.innerHTML = ''
-      for (const [key, value] of Object.entries(data)) {
-        let htmlBlock = 
-          '<div class="score-tile">' +
-            `<div class="score-tile-name">${key}</div>` +
-            `<div class="score-tile-score">${value}</div>` +
-          '</div>'
+      let num = 1
+      let htmlBlock = ''
+      for (item of data) {
+        if (num === 1) {
+          htmlBlock = 
+            '<div class="score-tile">' +
+              '<div class="score-tile-score">' +
+                `<div class="score-tile-score-avatar"><img id="avatar-pic" width="48px" src="${item.url}" alt=""/></div>` +
+                `<div class="score-tile-score-name">${item.user}</div>` +
+                `<div class="score-tile-score-score">${item.points}</div>` +
+              '</div>' +
+              '<div class="score-tile-quip">' +
+                `<div class="score-tile-quip-quip">${item.quip}</div>` +
+              '</div>' +
+            '</div>'
+          num += 1
+        } else {
+          htmlBlock = 
+            '<div class="score-tile">' +
+              '<div class="score-tile-score">' +
+                `<div class="score-tile-score-avatar"><img id="avatar-pic" width="48px" src="${item.url}" alt=""/></div>` +
+                `<div class="score-tile-score-name">${item.user}</div>` +
+                `<div class="score-tile-score-score">${item.points}</div>` +
+              '</div>' +
+            '</div>'
+        }
         let scoreboardItem = document.createElement('div')
         scoreboardItem.innerHTML =  htmlBlock
         listEl.appendChild(scoreboardItem)
       }
   })
 }
+
+
+
 

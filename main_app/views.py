@@ -300,12 +300,20 @@ class ProfileDelete(DeleteView):
 def refresh_scoreboard(request):
   state = State.objects.first()
   scoreboard_query = Result.objects.filter(question=state.question).order_by('-points')
-  scoreboard = {}
+  scoreboard = []
   for score in scoreboard_query:
     user = score.user.username
     points = score.points
-    scoreboard[score.user.username] = score.points
-  return JsonResponse(scoreboard)
+    url = score.user.profile_user.url
+    quip = score.user.profile_user.quip
+    scoreboard_item = {
+      'user': score.user.username,
+      'points': score.points,
+      'url': score.user.profile_user.url,
+      'quip': score.user.profile_user.quip
+    }
+    scoreboard.append(scoreboard_item)
+  return JsonResponse(scoreboard, safe=False)
 
 def generate_message(user):
   message_type = [
@@ -394,7 +402,8 @@ def tip(user):
   message_list = [
     leaderboard,
     remove_incorrect,
-    more_points
+    more_points,
+    change_avatar
   ]
   return random.choice(message_list)()
 
@@ -406,6 +415,9 @@ def remove_incorrect():
 
 def more_points():
   return "You get more points the faster you answer the question."
+
+def more_points():
+  return "You can change your avatar or your quip by trapping the avatar in the top left."
 
 def fact(user):
   message_list = [
