@@ -407,7 +407,8 @@ def tip(user):
     remove_incorrect,
     more_points,
     change_avatar,
-    change_quip
+    change_quip,
+    invite
   ]
   return random.choice(message_list)()
 
@@ -421,10 +422,13 @@ def more_points():
   return "You get more points the faster you answer the question."
 
 def change_avatar():
-  return "You can change your avatar by taapping the avatar in the top left."
+  return "You can change your avatar by tapping the avatar in the top left."
 
 def change_quip():
   return "The first person to answer gets to broadcast their quip to the rest of the players. Change yours by clicking the avatar in the top left."
+
+def invite():
+  return "Invite your friends to play! The more the merrier!"
 
 def fact(user):
   message_list = [
@@ -432,7 +436,19 @@ def fact(user):
     technology,
     seb,
     nick,
-    jermaine
+    jermaine,
+    duration,
+    framework,
+    headbanging,
+    guinea,
+    tickle,
+    snakes,
+    crows,
+    yourmom,
+    diseases,
+    pillow,
+    fearfun,
+    kangaroo
   ]
   return random.choice(message_list)()
 
@@ -443,12 +459,45 @@ def technology():
   return "This game was built with Django, Python, JavaScript, HTML, CSS and lots more!"
 
 def seb():
-  return "Check Seb out on LinkedIn!"
+  return "Check Sebastien Beitel out on LinkedIn!"
 
 def nick():
-  return "Check Nick out on LinkedIn!"
+  return "Check Nick Mackenzie out on LinkedIn!"
 
 def jermaine():
-  return "Check Jermaine out on LinkedIn!"
+  return "Check Jermaine Blake out on LinkedIn!"
 
+def duration():
+  return "This game was built in less than a week"
 
+def framework():
+  return "The frontend framework was made from scratch. No Bootstrap or Bulma needed"
+
+def headbanging():
+  return "Banging your head against a wall for one hour burns 150 calories."
+
+def guinea():
+  return "In Switzerland it is illegal to own just one guinea pig."
+
+def tickle():
+  return "Pteronophobia is the fear of being tickled by feathers."
+
+def snakes():
+  return "Snakes can help predict earthquakes."
+
+def crows():
+  return "Crows can hold grudges against specific individual people."
+
+def yourmom():
+  return "The oldest “your mom” joke was discovered on a 3,500 year old Babylonian tablet."
+
+def diseases():
+  return "So far, two diseases have successfully been eradicated: smallpox and rinderpest."
+
+def pillow():
+  return "29th May is officially “Put a Pillow on Your Fridge Day”."
+
+def fearfun():
+  return "Cherophobia is an irrational fear of fun or happiness."
+def kangaroo():
+  return "If you lift a kangaroo’s tail off the ground it can’t hop."
