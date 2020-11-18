@@ -24,6 +24,7 @@
         <a href="{% url 'switchboard' %}" class="btn">Play</a>
         <a href="{% url 'info' %}" class="btn">More Info</a>
         <a href="{% url 'logout' %}" class="btn-logout">Log Out</a>
+        <a class="delete" href="{% url 'profiles_delete' profile.id %}">Delete Profile</a>
     </div>
 </div>
 

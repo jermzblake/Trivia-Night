@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}" />
+<div class="play-wrapper">
+    <h1 class="delete-confirm">Delete Profile</h1>
+
+    <h4 class="delete-confirm">Are you sure you want to delete your profile <span class="delete-confirm">{{ profile.user }}</span>? You will not be able to undo this action. And you will not be able to track your progress and scores.</h4>
+
+    <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes - Delete!">
+    <a class="btn" href="{% url 'detail' user.id %}">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -112,3 +112,12 @@ input[type="file"] {
     font-family: "Lato", cursive;
     font-size: 1.5rem;
 }
+
+.delete-confirm {
+    color: lemonchiffon;
+}
+
+.delete {
+    color: lemonchiffon;
+    font-size: 0.33rem
+}
