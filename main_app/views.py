@@ -403,7 +403,8 @@ def tip(user):
     leaderboard,
     remove_incorrect,
     more_points,
-    change_avatar
+    change_avatar,
+    change_quip
   ]
   return random.choice(message_list)()
 
@@ -417,12 +418,18 @@ def more_points():
   return "You get more points the faster you answer the question."
 
 def change_avatar():
-  return "You can change your avatar or your quip by trapping the avatar in the top left."
+  return "You can change your avatar by taapping the avatar in the top left."
+
+def change_quip():
+  return "The first person to answer gets to broadcast their quip to the rest of the players. Change yours by clicking the avatar in the top left."
 
 def fact(user):
   message_list = [
     creators,
-    technology
+    technology,
+    seb,
+    nick,
+    jermaine
   ]
   return random.choice(message_list)()
 
@@ -431,5 +438,14 @@ def creators():
 
 def technology():
   return "This game was built with Django, Python, JavaScript, HTML, CSS and lots more!"
+
+def seb():
+  return "Check Seb out on LinkedIn!"
+
+def nick():
+  return "Check Nick out on LinkedIn!"
+
+def jermaine():
+  return "Check Jermaine out on LinkedIn!"
 
 
