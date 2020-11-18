@@ -72,6 +72,7 @@
     <th>Score:</th>
   </tr>       
   {% for player in leaderboards.alltime %}
+  <tr>
     <td>{{player.user__username}}</td>
     <td>{{player.points__sum}}</td>
   </tr>      
