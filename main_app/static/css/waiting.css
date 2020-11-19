@@ -41,6 +41,7 @@
 
 #question-title-txt {
   font-size: 1.1rem;
+  font-weight: 700;
   position: absolute;
   background-color: transparent;
   top: 10%;
@@ -51,6 +52,7 @@
 
 .answer {
   text-align: center;
+  font-weight: 700;
   color: black;
   width: 300px;
   height: 45px;
@@ -72,6 +74,7 @@
   padding: 10px;
 }
 .round-info-container {
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,12 +115,13 @@
 
 .score-tile-score {
   width:100%;
+  font-weight: 700;
   display:flex;
   justify-content: space-between;
 }
 
 .score-tile-score-avatar {
-  width: 30%;
+  width: 33%;
   display:flex;
   align-items: center;
   justify-content: center;
@@ -125,6 +129,7 @@
 
 .score-tile-score-name {
   width: 30%;
+  font-weight: 600;
   display:flex;
   align-items: center;
   justify-content: center;
@@ -144,6 +149,7 @@
 
 .score-tile-quip {
   text-align:center;
+  font-weight: 600;
   font-size: .85em;
   font-style: italic;
 }
