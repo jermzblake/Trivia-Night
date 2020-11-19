@@ -3,7 +3,6 @@
 
 <div class="play-wrapper">
     <div class="logo">
-        <!-- <h4>User Profile</h4> -->
         <h2 class="trivia-logo">{{ user.username }}</h2><br>
         <a href="{% url 'profiles_update' profile.id %}"><p class="game-name">{{user.profile.quip }}</p></a>
         <a href="{% url 'profiles_update' profile.id %}"><p>Click here to change Quip</p></a>

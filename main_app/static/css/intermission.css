@@ -68,7 +68,6 @@
 
   /* Allows the ring to change color when the color value updates */
   stroke: currentColor;
-  /* I've replaced currentColor with green for test purposes */
 }
 
 .base-timer__path-remaining.green {
