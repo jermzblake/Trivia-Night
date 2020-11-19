@@ -23,5 +23,5 @@ Press play. Then signup or login if needed. You can tap the more info link if yo
 - View stats and/or leaderboard on detail page
 - limit file size and type for avatar uploads
 - AAU I want to create and/or join a group
-- reduce waiting time if no other players are logged in (or make the waiting page more ingaging)
+- reduce waiting time if no other players are logged in (or make the waiting page more engaging)
 - Implement a trophy system
