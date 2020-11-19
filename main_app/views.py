@@ -167,14 +167,18 @@ def get_question():
   question = data['results'][0]['question']
   difficulty = data['results'][0]['difficulty']
 
-  #Data that is 'unescaped' to deal with unicode issues.
-  wrong_answer_pool = json.dumps(incorrect_answers)
+ # replacing html enities to letters
+  wrong_answer_pool = []
+  for word in incorrect_answers:
+    new_string = word.replace('&quot;', '"').replace('&eacute;',"é").replace('&#039;',"'").replace('&atilde;','ã').replace('&amp;', '&').replace('&aacute;','Á').replace('&ldquo;','"').replace('&rdquo;','"').replace('&gt;',">").replace('&lt;','<').replace('&hellip;','…')
+    wrong_answer_pool.append(new_string)
+
+  #Data that is 'unescaped' to deal with unicode issues.  
   question_string = html.unescape(question)
   answer_string = html.unescape(correct_answer)
-  wrong_answer_pool = html.unescape(incorrect_answers)
   category_string = html.unescape(category)
   difficulty_string = html.unescape(difficulty)
-
+  
   # This creates a answer pool in a random order using random method
   wrong_answer_pool += [answer_string]  
   wrong_answer_pool = random.sample(wrong_answer_pool,len(wrong_answer_pool))
