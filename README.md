@@ -1,4 +1,4 @@
-# Triva Night (a.k.a. projectWolverine)
+# Trivia Night (a.k.a. projectWolverine)
 This is a trivia app capable of hosting multiple players at a time. It was influenced by the triva games you could play at a bar. You know the one that the one drunk guy plays by himself at the end of the bar while nursing his beer. Yeah that one. We all enjoy playing those games just as much as the lonely guy. Well now you can play from anywhere and with anyone. There are 1000s of questions randomly generated from a wide range of categories. There's even a persistent global leaderboard. You can track your self compared to other players based on the hour, day, week, and more.
 ---
 ### Screenshots
