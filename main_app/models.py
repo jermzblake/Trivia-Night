@@ -34,7 +34,6 @@ class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
   quip = models.CharField(max_length=100, default='play to win')
   url = models.CharField(max_length=200, default='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg')
-  # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
   def __str__(self):
     return f'{self.user.username} Profile'
