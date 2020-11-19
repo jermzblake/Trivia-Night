@@ -170,11 +170,10 @@ def get_question():
  # replacing html enities to letters
   wrong_answer_pool = []
   for word in incorrect_answers:
-    new_string = word.replace('&quot;', '"').replace('&eacute;',"é").replace('&#039;',"'").replace('&atilde;','ã').replace('&amp;', '&').replace('&aacute;','Á').replace('&ldquo;','"').replace('&rdquo;','"').replace('&gt;',">").replace('&lt;','<')
+    new_string = word.replace('&quot;', '"').replace('&eacute;',"é").replace('&#039;',"'").replace('&atilde;','ã').replace('&amp;', '&').replace('&aacute;','Á').replace('&ldquo;','"').replace('&rdquo;','"').replace('&gt;',">").replace('&lt;','<').replace('&hellip;','…')
     wrong_answer_pool.append(new_string)
 
-  #Data that is 'unescaped' to deal with unicode issues.
-  
+  #Data that is 'unescaped' to deal with unicode issues.  
   question_string = html.unescape(question)
   answer_string = html.unescape(correct_answer)
   category_string = html.unescape(category)
