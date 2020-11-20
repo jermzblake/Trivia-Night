@@ -16,7 +16,7 @@ This is a trivia app capable of hosting multiple players at a time. It was influ
 - Open Trivia Database (api)
 
 ### Getting Started
-[Link to Trivia Night](http://project-wolverine.herokuapp.com/)  
+[Link to Trivia Night](http://trivia-night-django-app.herokuapp.com//)  
 Press play. Then signup or login if needed. You can tap the more info link if you need some instructions. Otherwise hit play and jump right into the game. Each question has a timer. The faster you answer the more points you will get for answering correctly. If you answer incorrectly, no points for you. after making a selection you'll be put in a waiting room where you can see how you did on the question and how your peers did too! Once the question period is over you'll be taken to the intermission page where the next question will be queued up. When you signup up a profile is created. You can upload an image for your avatar or make a quip for your profile by tapping on the avatar icon in the top left corner. That avatar and quip is visible to players on the waiting screen.
 
 ### Next Steps/Icebox Items:
