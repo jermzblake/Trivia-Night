@@ -261,7 +261,6 @@ def get_leaderboards():
 def profile_detail(request, user_id,):
   user = User.objects.get(id=user_id)
   profile = Profile.objects.get(user__id=user_id)
-  # profile = Profile.objects.get(id=profile_id)
   # Get leaderboards object
   leaderboards = get_leaderboards()
   return render(request, 'main_app/detail.html', {
@@ -283,7 +282,7 @@ def add_photo(request, user_id):
             s3.upload_fileobj(photo_file, BUCKET, key)
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            # we can assign to profile_id or profile (if you have a profile object)
+            # we can assign profile (if you have a profile object)
             profile = Profile.objects.get(user__id=user_id)
             profile.url = url
             profile.save()
