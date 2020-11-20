@@ -27,7 +27,7 @@ const COLOR_CODES = {
 };
 
 // this is if we want to have the time displayed 
-//it's not included right now
+// THIS IS NOT INCLUDED RIGHT NOW
 function formatTime(time) {
   // The largest round integer less than or equal to the result of time divided being by 60.
   const minutes = 0;

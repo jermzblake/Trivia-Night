@@ -68,13 +68,10 @@ a {
 }
 
 input[type="file"] {
-  /* background-color: inherit;
-  width:;
+  background-color: inherit;
   padding: 12px 20px;
   color: #ff0099;
-  border-radius: var(--border-radius);
   border: none;
-  border: 2px black solid; */
   display: inline-block;
 }
 
